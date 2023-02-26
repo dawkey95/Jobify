@@ -6,35 +6,19 @@ Project in Action - [Jobify](https://www.jobify.live/)
 
 #### Run The App Locally
 
-```sh
-npm run install-dependencies
-```
-
+- npm run install-dependencies
 - rename .env.temp to .env
 - setup values for - MONGO_URL, JWT_SECRET, JWT_LIFETIME
-
-```sh
-npm start
-```
-
+- npm start
 - visit url http://localhost:3000/
 
 #### Setup React App
 
-- create <b>client</b> folder
+- create client folder
 - open terminal
-
-```sh
-cd client
-```
-
-```sh
-npx create-react-app .
-```
-
-```sh
-npm start
-```
+- cd client
+- npx create-react-app .
+- npm start
 
 - set editor/browser side by side
 - copy/paste assets from complete project
@@ -64,11 +48,7 @@ npm start
 - normalize.css
 - small CSS file that provides cross-browser consistency in the default styling of HTML elements.
 - [normalize docs](https://necolas.github.io/normalize.css/)
-
-```sh
-npm install normalize.css
-```
-
+- npm install normalize.css
 - import 'normalize.css' in index.js
 - SET BEFORE 'index.css'
 - replace contents of index.css
