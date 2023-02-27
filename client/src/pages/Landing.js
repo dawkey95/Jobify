@@ -1,29 +1,30 @@
 import logo from '../assets/images/logo.svg';
 import main from '../assets/images/main.svg';
-
+import styled from 'styled-components';
+import Wrapper from '../assets/wrappers/LandingPage'
 const Landing = () => {
 	return (
-		<main>
+		<Wrapper>
 			<nav>
 				<img src={logo} alt="jobify" className="logo" />
 			</nav>
 			<div className="container page">
-      {/* info */}
+				{/* info */}
 				<div className="info">
 					<h1>
 						job <span>tracking</span> app
 					</h1>
 					<p>
-						I'm baby sriracha vexillologist migas health goth seitan plaid
-						farm-to-table prism jean shorts fixie wolf mixtape truffaut. Fit offal put
-						a bird on it gochujang helvetica, williamsburg chillwave XOXO trust fund
-						meggings ascot.
+						Pabst readymade heirloom, kinfolk bodega boys asymmetrical marxism vinyl
+						gastropub mustache. Hot chicken quinoa semiotics woke JOMO kale chips +1
+						hammock tonx listicle.
 					</p>
-          <button className='btn btn-hero'>Login/Register</button>
+					<button className="btn btn-hero">Login/Register</button>
 				</div>
-        <img src={main} alt="job hunt" className='img main-img'/>
+				<img src={main} alt="job hunt" className="img main-img" />
 			</div>
-		</main>
+		</Wrapper>
 	);
 };
+
 export default Landing;
