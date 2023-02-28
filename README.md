@@ -232,15 +232,6 @@ return (
 );
 ```
 
-#### Auto Imports
-
-- use while developing
-- only sparingly while recording
-- better picture
-- messes with flow
-- just my preference
-- still use them, just not all the time
-
 #### Register Page - Setup
 
 - show preview in Browser and themes
