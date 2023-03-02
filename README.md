@@ -4,7 +4,6 @@
 
 Project in Action - [Jobify](https://www.jobify.live/)
 
-
 #### Run The App Locally
 
 ```sh
@@ -113,7 +112,7 @@ npm install styled-components
 import styled from 'styled-components';
 
 const El = styled.el`
-  // styles go here
+	// styles go here
 `;
 ```
 
@@ -126,11 +125,11 @@ const El = styled.el`
 const Wrapper = styled.el``;
 
 const Component = () => {
-  return (
-    <Wrapper>
-      <h1> Component</h1>
-    </Wrapper>
-  );
+	return (
+		<Wrapper>
+			<h1> Component</h1>
+		</Wrapper>
+	);
 };
 ```
 
@@ -183,9 +182,9 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
 ```js
 <nav>
-  <Link to='/'>Dashboard</Link>
-  <Link to='/register'>Register</Link>
-  <Link to='/landing'>Home</Link>
+	<Link to="/">Dashboard</Link>
+	<Link to="/register">Register</Link>
+	<Link to="/landing">Home</Link>
 </nav>
 ```
 
@@ -195,9 +194,9 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 return (
-  <Link to='/register' className='btn btn-hero'>
-    Login / Register
-  </Link>
+	<Link to="/register" className="btn btn-hero">
+		Login / Register
+	</Link>
 );
 ```
 
@@ -221,14 +220,14 @@ import img from '../assets/images/not-found.svg';
 import Wrapper from '../assets/wrappers/ErrorPage';
 
 return (
-  <Wrapper className='full-page'>
-    <div>
-      <img src={img} alt='not found' />
-      <h3>text</h3>
-      <p>text</p>
-      <Link to='/'>back home</Link>
-    </div>
-  </Wrapper>
+	<Wrapper className="full-page">
+		<div>
+			<img src={img} alt="not found" />
+			<h3>text</h3>
+			<p>text</p>
+			<Link to="/">back home</Link>
+		</div>
+	</Wrapper>
 );
 ```
 
@@ -243,54 +242,54 @@ import Wrapper from '../assets/wrappers/RegisterPage';
 // global context and useNavigate later
 
 const initialState = {
-  name: '',
-  email: '',
-  password: '',
-  isMember: true,
+	name: '',
+	email: '',
+	password: '',
+	isMember: true,
 };
 // if possible prefer local state
 // global state
 
 function Register() {
-  const [values, setValues] = useState(initialState);
+	const [values, setValues] = useState(initialState);
 
-  // global context and useNavigate later
+	// global context and useNavigate later
 
-  const handleChange = (e) => {
-    console.log(e.target);
-  };
+	const handleChange = (e) => {
+		console.log(e.target);
+	};
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-    console.log(e.target);
-  };
-  return (
-    <Wrapper className='full-page'>
-      <form className='form' onSubmit={onSubmit}>
-        <Logo />
-        <h3>Login</h3>
+	const onSubmit = (e) => {
+		e.preventDefault();
+		console.log(e.target);
+	};
+	return (
+		<Wrapper className="full-page">
+			<form className="form" onSubmit={onSubmit}>
+				<Logo />
+				<h3>Login</h3>
 
-        {/* name field */}
-        <div className='form-row'>
-          <label htmlFor='name' className='form-label'>
-            name
-          </label>
+				{/* name field */}
+				<div className="form-row">
+					<label htmlFor="name" className="form-label">
+						name
+					</label>
 
-          <input
-            type='text'
-            value={values.name}
-            name='name'
-            onChange={handleChange}
-            className='form-input'
-          />
-        </div>
+					<input
+						type="text"
+						value={values.name}
+						name="name"
+						onChange={handleChange}
+						className="form-input"
+					/>
+				</div>
 
-        <button type='submit' className='btn btn-block'>
-          submit
-        </button>
-      </form>
-    </Wrapper>
-  );
+				<button type="submit" className="btn btn-block">
+					submit
+				</button>
+			</form>
+		</Wrapper>
+	);
 }
 ```
 
@@ -303,21 +302,21 @@ function Register() {
 
 ```js
 const FormRow = ({ type, name, value, handleChange, labelText }) => {
-  return (
-    <div className='form-row'>
-      <label htmlFor={name} className='form-label'>
-        {labelText || name}
-      </label>
+	return (
+		<div className="form-row">
+			<label htmlFor={name} className="form-label">
+				{labelText || name}
+			</label>
 
-      <input
-        type={type}
-        value={value}
-        name={name}
-        onChange={handleChange}
-        className='form-input'
-      />
-    </div>
-  );
+			<input
+				type={type}
+				value={value}
+				name={name}
+				onChange={handleChange}
+				className="form-input"
+			/>
+		</div>
+	);
 };
 
 export default FormRow;
@@ -330,7 +329,7 @@ export default FormRow;
 
 ```js
 const Alert = () => {
-  return <div className='alert alert-danger'>alert goes here</div>;
+	return <div className="alert alert-danger">alert goes here</div>;
 };
 
 export default Alert;
@@ -350,37 +349,37 @@ values.showAlert && <Alert />;
 
 ```js
 const toggleMember = () => {
-  setValues({ ...values, isMember: !values.isMember });
+	setValues({ ...values, isMember: !values.isMember });
 };
 
 return (
-  <Wrapper>
-    {/* control h3 */}
+	<Wrapper>
+		{/* control h3 */}
 
-    <h3>{values.isMember ? 'Login' : 'Register'}</h3>
+		<h3>{values.isMember ? 'Login' : 'Register'}</h3>
 
-    {/* toggle name */}
+		{/* toggle name */}
 
-    {!values.isMember && (
-      <FormRow
-        type='text'
-        name='name'
-        value={values.name}
-        handleChange={handleChange}
-      />
-    )}
+		{!values.isMember && (
+			<FormRow
+				type="text"
+				name="name"
+				value={values.name}
+				handleChange={handleChange}
+			/>
+		)}
 
-    {/* right after submit btn */}
-    {/* toggle button */}
+		{/* right after submit btn */}
+		{/* toggle button */}
 
-    <p>
-      {values.isMember ? 'Not a member yet?' : 'Already a member?'}
+		<p>
+			{values.isMember ? 'Not a member yet?' : 'Already a member?'}
 
-      <button type='button' onClick={toggleMember} className='member-btn'>
-        {values.isMember ? 'Register' : 'Login'}
-      </button>
-    </p>
-  </Wrapper>
+			<button type="button" onClick={toggleMember} className="member-btn">
+				{values.isMember ? 'Register' : 'Login'}
+			</button>
+		</p>
+	</Wrapper>
 );
 ```
 
@@ -395,28 +394,28 @@ return (
 import React, { useState, useReducer, useContext } from 'react';
 
 export const initialState = {
-  isLoading: false,
-  showAlert: false,
-  alertText: '',
-  alertType: '',
+	isLoading: false,
+	showAlert: false,
+	alertText: '',
+	alertType: '',
 };
 const AppContext = React.createContext();
 const AppProvider = ({ children }) => {
-  const [state, setState] = useState(initialState);
+	const [state, setState] = useState(initialState);
 
-  return (
-    <AppContext.Provider
-      value={{
-        ...state,
-      }}
-    >
-      {children}
-    </AppContext.Provider>
-  );
+	return (
+		<AppContext.Provider
+			value={{
+				...state,
+			}}
+		>
+			{children}
+		</AppContext.Provider>
+	);
 };
 // make sure use
 export const useAppContext = () => {
-  return useContext(AppContext);
+	return useContext(AppContext);
 };
 
 export { AppProvider };
@@ -428,12 +427,12 @@ export { AppProvider };
 import { AppProvider } from './context/appContext';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <AppProvider>
-      <App />
-    </AppProvider>
-  </React.StrictMode>,
-  document.getElementById('root')
+	<React.StrictMode>
+		<AppProvider>
+			<App />
+		</AppProvider>
+	</React.StrictMode>,
+	document.getElementById('root')
 );
 ```
 
@@ -459,7 +458,7 @@ const { isLoading, showAlert } = useAppContext();
 reducer.js;
 
 const reducer = (state, action) => {
-  throw new Error(`no such action :${action.type}`);
+	throw new Error(`no such action :${action.type}`);
 };
 export default reducer;
 ```
@@ -483,24 +482,23 @@ export const DISPLAY_ALERT = 'SHOW_ALERT';
 - setup imports (reducer and appContext)
 
 ```js
-appContext.js
+appContext.js;
 
-const displayAlert() =>{
-  dispatch({type:DISPLAY_ALERT})
-}
-
+const displayAlert = () => {
+	dispatch({ type: DISPLAY_ALERT });
+};
 ```
 
 ```js
 reducer.js;
 
 if (action.type === DISPLAY_ALERT) {
-  return {
-    ...state,
-    showAlert: true,
-    alertType: 'danger',
-    alertText: 'Please provide all values!',
-  };
+	return {
+		...state,
+		showAlert: true,
+		alertType: 'danger',
+		alertText: 'Please provide all values!',
+	};
 }
 ```
 
@@ -510,8 +508,8 @@ Alert.js in Components;
 import { useAppContext } from '../context/appContext';
 
 const Alert = () => {
-  const { alertType, alertText } = useAppContext();
-  return <div className={`alert alert-${alertType}`}>{alertText}</div>;
+	const { alertType, alertText } = useAppContext();
+	return <div className={`alert alert-${alertType}`}>{alertText}</div>;
 };
 ```
 
@@ -523,7 +521,7 @@ const Alert = () => {
 appContext.js;
 
 const handleChange = (e) => {
-  setValues({ ...values, [e.target.name]: e.target.value });
+	setValues({ ...values, [e.target.name]: e.target.value });
 };
 ```
 
@@ -533,13 +531,13 @@ const handleChange = (e) => {
 appContext.js;
 
 const onSubmit = (e) => {
-  e.preventDefault();
-  const { name, email, password, isMember } = values;
-  if (!email || !password || (!isMember && !name)) {
-    displayAlert();
-    return;
-  }
-  console.log(values);
+	e.preventDefault();
+	const { name, email, password, isMember } = values;
+	if (!email || !password || (!isMember && !name)) {
+		displayAlert();
+		return;
+	}
+	console.log(values);
 };
 ```
 
@@ -559,12 +557,12 @@ export const CLEAR_ALERT = 'CLEAR_ALERT';
 reducer.js;
 
 if (action.type === CLEAR_ALERT) {
-  return {
-    ...state,
-    showAlert: false,
-    alertType: '',
-    alertText: '',
-  };
+	return {
+		...state,
+		showAlert: false,
+		alertType: '',
+		alertText: '',
+	};
 }
 ```
 
@@ -572,18 +570,18 @@ if (action.type === CLEAR_ALERT) {
 appContext.js;
 
 const displayAlert = () => {
-  dispatch({
-    type: DISPLAY_ALERT,
-  });
-  clearAlert();
+	dispatch({
+		type: DISPLAY_ALERT,
+	});
+	clearAlert();
 };
 
 const clearAlert = () => {
-  setTimeout(() => {
-    dispatch({
-      type: CLEAR_ALERT,
-    });
-  }, 3000);
+	setTimeout(() => {
+		dispatch({
+			type: CLEAR_ALERT,
+		});
+	}, 3000);
 };
 ```
 
@@ -651,7 +649,7 @@ import express from 'express';
 const app = express();
 
 app.get('/', (req, res) => {
-  res.send('Welcome!');
+	res.send('Welcome!');
 });
 
 const port = process.env.PORT || 5000;
@@ -777,7 +775,7 @@ npm install styled-components
 import styled from 'styled-components';
 
 const El = styled.el`
-  // styles go here
+	// styles go here
 `;
 ```
 
@@ -790,11 +788,11 @@ const El = styled.el`
 const Wrapper = styled.el``;
 
 const Component = () => {
-  return (
-    <Wrapper>
-      <h1> Component</h1>
-    </Wrapper>
-  );
+	return (
+		<Wrapper>
+			<h1> Component</h1>
+		</Wrapper>
+	);
 };
 ```
 
@@ -847,9 +845,9 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
 ```js
 <nav>
-  <Link to='/'>Dashboard</Link>
-  <Link to='/register'>Register</Link>
-  <Link to='/landing'>Home</Link>
+	<Link to="/">Dashboard</Link>
+	<Link to="/register">Register</Link>
+	<Link to="/landing">Home</Link>
 </nav>
 ```
 
@@ -859,9 +857,9 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 return (
-  <Link to='/register' className='btn btn-hero'>
-    Login / Register
-  </Link>
+	<Link to="/register" className="btn btn-hero">
+		Login / Register
+	</Link>
 );
 ```
 
@@ -885,14 +883,14 @@ import img from '../assets/images/not-found.svg';
 import Wrapper from '../assets/wrappers/ErrorPage';
 
 return (
-  <Wrapper className='full-page'>
-    <div>
-      <img src={img} alt='not found' />
-      <h3>text</h3>
-      <p>text</p>
-      <Link to='/'>back home</Link>
-    </div>
-  </Wrapper>
+	<Wrapper className="full-page">
+		<div>
+			<img src={img} alt="not found" />
+			<h3>text</h3>
+			<p>text</p>
+			<Link to="/">back home</Link>
+		</div>
+	</Wrapper>
 );
 ```
 
@@ -916,54 +914,54 @@ import Wrapper from '../assets/wrappers/RegisterPage';
 // global context and useNavigate later
 
 const initialState = {
-  name: '',
-  email: '',
-  password: '',
-  isMember: true,
+	name: '',
+	email: '',
+	password: '',
+	isMember: true,
 };
 // if possible prefer local state
 // global state
 
 function Register() {
-  const [values, setValues] = useState(initialState);
+	const [values, setValues] = useState(initialState);
 
-  // global context and useNavigate later
+	// global context and useNavigate later
 
-  const handleChange = (e) => {
-    console.log(e.target);
-  };
+	const handleChange = (e) => {
+		console.log(e.target);
+	};
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-    console.log(e.target);
-  };
-  return (
-    <Wrapper className='full-page'>
-      <form className='form' onSubmit={onSubmit}>
-        <Logo />
-        <h3>Login</h3>
+	const onSubmit = (e) => {
+		e.preventDefault();
+		console.log(e.target);
+	};
+	return (
+		<Wrapper className="full-page">
+			<form className="form" onSubmit={onSubmit}>
+				<Logo />
+				<h3>Login</h3>
 
-        {/* name field */}
-        <div className='form-row'>
-          <label htmlFor='name' className='form-label'>
-            name
-          </label>
+				{/* name field */}
+				<div className="form-row">
+					<label htmlFor="name" className="form-label">
+						name
+					</label>
 
-          <input
-            type='text'
-            value={values.name}
-            name='name'
-            onChange={handleChange}
-            className='form-input'
-          />
-        </div>
+					<input
+						type="text"
+						value={values.name}
+						name="name"
+						onChange={handleChange}
+						className="form-input"
+					/>
+				</div>
 
-        <button type='submit' className='btn btn-block'>
-          submit
-        </button>
-      </form>
-    </Wrapper>
-  );
+				<button type="submit" className="btn btn-block">
+					submit
+				</button>
+			</form>
+		</Wrapper>
+	);
 }
 ```
 
@@ -976,21 +974,21 @@ function Register() {
 
 ```js
 const FormRow = ({ type, name, value, handleChange, labelText }) => {
-  return (
-    <div className='form-row'>
-      <label htmlFor={name} className='form-label'>
-        {labelText || name}
-      </label>
+	return (
+		<div className="form-row">
+			<label htmlFor={name} className="form-label">
+				{labelText || name}
+			</label>
 
-      <input
-        type={type}
-        value={value}
-        name={name}
-        onChange={handleChange}
-        className='form-input'
-      />
-    </div>
-  );
+			<input
+				type={type}
+				value={value}
+				name={name}
+				onChange={handleChange}
+				className="form-input"
+			/>
+		</div>
+	);
 };
 
 export default FormRow;
@@ -1003,7 +1001,7 @@ export default FormRow;
 
 ```js
 const Alert = () => {
-  return <div className='alert alert-danger'>alert goes here</div>;
+	return <div className="alert alert-danger">alert goes here</div>;
 };
 
 export default Alert;
@@ -1023,37 +1021,37 @@ values.showAlert && <Alert />;
 
 ```js
 const toggleMember = () => {
-  setValues({ ...values, isMember: !values.isMember });
+	setValues({ ...values, isMember: !values.isMember });
 };
 
 return (
-  <Wrapper>
-    {/* control h3 */}
+	<Wrapper>
+		{/* control h3 */}
 
-    <h3>{values.isMember ? 'Login' : 'Register'}</h3>
+		<h3>{values.isMember ? 'Login' : 'Register'}</h3>
 
-    {/* toggle name */}
+		{/* toggle name */}
 
-    {!values.isMember && (
-      <FormRow
-        type='text'
-        name='name'
-        value={values.name}
-        handleChange={handleChange}
-      />
-    )}
+		{!values.isMember && (
+			<FormRow
+				type="text"
+				name="name"
+				value={values.name}
+				handleChange={handleChange}
+			/>
+		)}
 
-    {/* right after submit btn */}
-    {/* toggle button */}
+		{/* right after submit btn */}
+		{/* toggle button */}
 
-    <p>
-      {values.isMember ? 'Not a member yet?' : 'Already a member?'}
+		<p>
+			{values.isMember ? 'Not a member yet?' : 'Already a member?'}
 
-      <button type='button' onClick={toggleMember} className='member-btn'>
-        {values.isMember ? 'Register' : 'Login'}
-      </button>
-    </p>
-  </Wrapper>
+			<button type="button" onClick={toggleMember} className="member-btn">
+				{values.isMember ? 'Register' : 'Login'}
+			</button>
+		</p>
+	</Wrapper>
 );
 ```
 
@@ -1068,28 +1066,28 @@ return (
 import React, { useState, useReducer, useContext } from 'react';
 
 export const initialState = {
-  isLoading: false,
-  showAlert: false,
-  alertText: '',
-  alertType: '',
+	isLoading: false,
+	showAlert: false,
+	alertText: '',
+	alertType: '',
 };
 const AppContext = React.createContext();
 const AppProvider = ({ children }) => {
-  const [state, setState] = useState(initialState);
+	const [state, setState] = useState(initialState);
 
-  return (
-    <AppContext.Provider
-      value={{
-        ...state,
-      }}
-    >
-      {children}
-    </AppContext.Provider>
-  );
+	return (
+		<AppContext.Provider
+			value={{
+				...state,
+			}}
+		>
+			{children}
+		</AppContext.Provider>
+	);
 };
 // make sure use
 export const useAppContext = () => {
-  return useContext(AppContext);
+	return useContext(AppContext);
 };
 
 export { AppProvider };
@@ -1101,12 +1099,12 @@ export { AppProvider };
 import { AppProvider } from './context/appContext';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <AppProvider>
-      <App />
-    </AppProvider>
-  </React.StrictMode>,
-  document.getElementById('root')
+	<React.StrictMode>
+		<AppProvider>
+			<App />
+		</AppProvider>
+	</React.StrictMode>,
+	document.getElementById('root')
 );
 ```
 
@@ -1132,7 +1130,7 @@ const { isLoading, showAlert } = useAppContext();
 reducer.js;
 
 const reducer = (state, action) => {
-  throw new Error(`no such action :${action.type}`);
+	throw new Error(`no such action :${action.type}`);
 };
 export default reducer;
 ```
@@ -1168,12 +1166,12 @@ const displayAlert() =>{
 reducer.js;
 
 if (action.type === DISPLAY_ALERT) {
-  return {
-    ...state,
-    showAlert: true,
-    alertType: 'danger',
-    alertText: 'Please provide all values!',
-  };
+	return {
+		...state,
+		showAlert: true,
+		alertType: 'danger',
+		alertText: 'Please provide all values!',
+	};
 }
 ```
 
@@ -1183,8 +1181,8 @@ Alert.js in Components;
 import { useAppContext } from '../context/appContext';
 
 const Alert = () => {
-  const { alertType, alertText } = useAppContext();
-  return <div className={`alert alert-${alertType}`}>{alertText}</div>;
+	const { alertType, alertText } = useAppContext();
+	return <div className={`alert alert-${alertType}`}>{alertText}</div>;
 };
 ```
 
@@ -1196,7 +1194,7 @@ const Alert = () => {
 appContext.js;
 
 const handleChange = (e) => {
-  setValues({ ...values, [e.target.name]: e.target.value });
+	setValues({ ...values, [e.target.name]: e.target.value });
 };
 ```
 
@@ -1206,13 +1204,13 @@ const handleChange = (e) => {
 appContext.js;
 
 const onSubmit = (e) => {
-  e.preventDefault();
-  const { name, email, password, isMember } = values;
-  if (!email || !password || (!isMember && !name)) {
-    displayAlert();
-    return;
-  }
-  console.log(values);
+	e.preventDefault();
+	const { name, email, password, isMember } = values;
+	if (!email || !password || (!isMember && !name)) {
+		displayAlert();
+		return;
+	}
+	console.log(values);
 };
 ```
 
@@ -1232,12 +1230,12 @@ export const CLEAR_ALERT = 'CLEAR_ALERT';
 reducer.js;
 
 if (action.type === CLEAR_ALERT) {
-  return {
-    ...state,
-    showAlert: false,
-    alertType: '',
-    alertText: '',
-  };
+	return {
+		...state,
+		showAlert: false,
+		alertType: '',
+		alertText: '',
+	};
 }
 ```
 
@@ -1245,18 +1243,18 @@ if (action.type === CLEAR_ALERT) {
 appContext.js;
 
 const displayAlert = () => {
-  dispatch({
-    type: DISPLAY_ALERT,
-  });
-  clearAlert();
+	dispatch({
+		type: DISPLAY_ALERT,
+	});
+	clearAlert();
 };
 
 const clearAlert = () => {
-  setTimeout(() => {
-    dispatch({
-      type: CLEAR_ALERT,
-    });
-  }, 3000);
+	setTimeout(() => {
+		dispatch({
+			type: CLEAR_ALERT,
+		});
+	}, 3000);
 };
 ```
 
@@ -1324,7 +1322,7 @@ import express from 'express';
 const app = express();
 
 app.get('/', (req, res) => {
-  res.send('Welcome!');
+	res.send('Welcome!');
 });
 
 const port = process.env.PORT || 5000;
@@ -1587,7 +1585,7 @@ return jwt.sign({ userId: this._id }, 'jwtSecret', { expiresIn: '1d' });
 
 ```js
 return jwt.sign({ userId: this._id }, process.env.JWT_SECRET, {
-  expiresIn: process.env.JWT_LIFETIME,
+	expiresIn: process.env.JWT_LIFETIME,
 });
 ```
 
@@ -1667,9 +1665,9 @@ app.use(cors());
 appContext.js;
 
 const initialState = {
-  user: null,
-  token: null,
-  userLocation: '',
+	user: null,
+	token: null,
+	userLocation: '',
 };
 ```
 
@@ -1679,7 +1677,7 @@ const initialState = {
 ```js
 appContext.js;
 const registerUser = async (currentUser) => {
-  console.log(currentUser);
+	console.log(currentUser);
 };
 ```
 
@@ -1690,15 +1688,15 @@ Register.js;
 
 const currentUser = { name, email, password };
 if (isMember) {
-  console.log('already a member');
+	console.log('already a member');
 } else {
-  registerUser(currentUser);
+	registerUser(currentUser);
 }
 
 return (
-  <button type='submit' className='btn btn-block' disabled={isLoading}>
-    submit
-  </button>
+	<button type="submit" className="btn btn-block" disabled={isLoading}>
+		submit
+	</button>
 );
 ```
 
@@ -1723,63 +1721,63 @@ appContext.js;
 import axios from 'axios';
 
 const registerUser = async (currentUser) => {
-  dispatch({ type: REGISTER_USER_BEGIN });
-  try {
-    const response = await axios.post('/api/v1/auth/register', currentUser);
-    console.log(response);
-    const { user, token, location } = response.data;
-    dispatch({
-      type: REGISTER_USER_SUCCESS,
-      payload: {
-        user,
-        token,
-        location,
-      },
-    });
+	dispatch({ type: REGISTER_USER_BEGIN });
+	try {
+		const response = await axios.post('/api/v1/auth/register', currentUser);
+		console.log(response);
+		const { user, token, location } = response.data;
+		dispatch({
+			type: REGISTER_USER_SUCCESS,
+			payload: {
+				user,
+				token,
+				location,
+			},
+		});
 
-    // will add later
-    // addUserToLocalStorage({
-    //   user,
-    //   token,
-    //   location,
-    // })
-  } catch (error) {
-    console.log(error.response);
-    dispatch({
-      type: REGISTER_USER_ERROR,
-      payload: { msg: error.response.data.msg },
-    });
-  }
-  clearAlert();
+		// will add later
+		// addUserToLocalStorage({
+		//   user,
+		//   token,
+		//   location,
+		// })
+	} catch (error) {
+		console.log(error.response);
+		dispatch({
+			type: REGISTER_USER_ERROR,
+			payload: { msg: error.response.data.msg },
+		});
+	}
+	clearAlert();
 };
 ```
 
 ```js
 reducer.js;
 if (action.type === REGISTER_USER_BEGIN) {
-  return { ...state, isLoading: true };
+	return { ...state, isLoading: true };
 }
 if (action.type === REGISTER_USER_SUCCESS) {
-  return {
-    ...state,
-    user: action.payload.user,
-    token: action.payload.token,
-    userLocation: action.payload.location,
-    jobLocation: action.payload.location,
-    isLoading: false,
-    showAlert: true,
-    alertType: 'success',
-    alertText: 'User Created! Redirecting...',
-  };
+	return {
+		...state,
+		user: action.payload.user,
+		token: action.payload.token,
+		userLocation: action.payload.location,
+		jobLocation: action.payload.location,
+		isLoading: false,
+		showAlert: true,
+		alertType: 'success',
+		alertText: 'User Created! Redirecting...',
+	};
 }
 if (action.type === REGISTER_USER_ERROR) {
-  return {
-    ...state,
-    isLoading: false,
-    showAlert: true,
-    alertType: 'danger',
-    alertText: action.payload.msg,
-  };
+	return {
+		...state,
+		isLoading: false,
+		showAlert: true,
+		alertType: 'danger',
+		alertText: action.payload.msg,
+	};
 }
 ```
 
@@ -1791,16 +1789,16 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
-  const { user } = useAppContext();
-  const navigate = useNavigate();
+	const { user } = useAppContext();
+	const navigate = useNavigate();
 
-  useEffect(() => {
-    if (user) {
-      setTimeout(() => {
-        navigate('/');
-      }, 3000);
-    }
-  }, [user, navigate]);
+	useEffect(() => {
+		if (user) {
+			setTimeout(() => {
+				navigate('/');
+			}, 3000);
+		}
+	}, [user, navigate]);
 };
 ```
 
@@ -1809,24 +1807,24 @@ const Register = () => {
 ```js
 appContext.js;
 const addUserToLocalStorage = ({ user, token, location }) => {
-  localStorage.setItem('user', JSON.stringify(user));
-  localStorage.setItem('token', token);
-  localStorage.setItem('location', location);
+	localStorage.setItem('user', JSON.stringify(user));
+	localStorage.setItem('token', token);
+	localStorage.setItem('location', location);
 };
 
 const removeUserFromLocalStorage = () => {
-  localStorage.removeItem('token');
-  localStorage.removeItem('user');
-  localStorage.removeItem('location');
+	localStorage.removeItem('token');
+	localStorage.removeItem('user');
+	localStorage.removeItem('location');
 };
 
 const registerUser = async (currentUser) => {
-  // in try block
-  addUserToLocalStorage({
-    user,
-    token,
-    location,
-  });
+	// in try block
+	addUserToLocalStorage({
+		user,
+		token,
+		location,
+	});
 };
 
 // set as default
@@ -1835,10 +1833,10 @@ const user = localStorage.getItem('user');
 const userLocation = localStorage.getItem('location');
 
 const initialState = {
-  user: user ? JSON.parse(user) : null,
-  token: token,
-  userLocation: userLocation || '',
-  jobLocation: userLocation || '',
+	user: user ? JSON.parse(user) : null,
+	token: token,
+	userLocation: userLocation || '',
+	jobLocation: userLocation || '',
 };
 ```
 
@@ -1855,7 +1853,7 @@ npm install morgan
 import morgan from 'morgan';
 
 if (process.env.NODE_ENV !== 'production') {
-  app.use(morgan('dev'));
+	app.use(morgan('dev'));
 }
 ```
 
@@ -1869,10 +1867,10 @@ import { StatusCodes } from 'http-status-codes';
 import CustomAPIError from './custom-api.js';
 
 class UnauthenticatedError extends CustomAPIError {
-  constructor(message) {
-    super(message);
-    this.statusCode = StatusCodes.UNAUTHORIZED;
-  }
+	constructor(message) {
+		super(message);
+		this.statusCode = StatusCodes.UNAUTHORIZED;
+	}
 }
 ```
 
@@ -1882,30 +1880,30 @@ class UnauthenticatedError extends CustomAPIError {
 User.js in models;
 
 UserSchema.methods.comparePassword = async function (candidatePassword) {
-  const isMatch = await bcrypt.compare(candidatePassword, this.password);
-  return isMatch;
+	const isMatch = await bcrypt.compare(candidatePassword, this.password);
+	return isMatch;
 };
 ```
 
 ```js
 authController.js;
 const login = async (req, res) => {
-  const { email, password } = req.body;
-  if (!email || !password) {
-    throw new BadRequestError('Please provide all values');
-  }
-  const user = await User.findOne({ email }).select('+password');
+	const { email, password } = req.body;
+	if (!email || !password) {
+		throw new BadRequestError('Please provide all values');
+	}
+	const user = await User.findOne({ email }).select('+password');
 
-  if (!user) {
-    throw new UnauthenticatedError('Invalid Credentials');
-  }
-  const isPasswordCorrect = await user.comparePassword(password);
-  if (!isPasswordCorrect) {
-    throw new UnauthenticatedError('Invalid Credentials');
-  }
-  const token = user.createJWT();
-  user.password = undefined;
-  res.status(StatusCodes.OK).json({ user, token, location: user.location });
+	if (!user) {
+		throw new UnauthenticatedError('Invalid Credentials');
+	}
+	const isPasswordCorrect = await user.comparePassword(password);
+	if (!isPasswordCorrect) {
+		throw new UnauthenticatedError('Invalid Credentials');
+	}
+	const token = user.createJWT();
+	user.password = undefined;
+	res.status(StatusCodes.OK).json({ user, token, location: user.location });
 };
 ```
 
@@ -1919,7 +1917,7 @@ const login = async (req, res) => {
 ```js
 appContext.js;
 const loginUser = async (currentUser) => {
-  console.log(currentUser);
+	console.log(currentUser);
 };
 ```
 
@@ -1929,9 +1927,9 @@ const loginUser = async (currentUser) => {
 Register.js;
 
 if (isMember) {
-  loginUser(currentUser);
+	loginUser(currentUser);
 } else {
-  registerUser(currentUser);
+	registerUser(currentUser);
 }
 ```
 
@@ -1940,24 +1938,24 @@ if (isMember) {
 ```js
 appContext.js;
 const loginUser = async (currentUser) => {
-  dispatch({ type: LOGIN_USER_BEGIN });
-  try {
-    const { data } = await axios.post('/api/v1/auth/login', currentUser);
-    const { user, token, location } = data;
+	dispatch({ type: LOGIN_USER_BEGIN });
+	try {
+		const { data } = await axios.post('/api/v1/auth/login', currentUser);
+		const { user, token, location } = data;
 
-    dispatch({
-      type: LOGIN_USER_SUCCESS,
-      payload: { user, token, location },
-    });
+		dispatch({
+			type: LOGIN_USER_SUCCESS,
+			payload: { user, token, location },
+		});
 
-    addUserToLocalStorage({ user, token, location });
-  } catch (error) {
-    dispatch({
-      type: LOGIN_USER_ERROR,
-      payload: { msg: error.response.data.msg },
-    });
-  }
-  clearAlert();
+		addUserToLocalStorage({ user, token, location });
+	} catch (error) {
+		dispatch({
+			type: LOGIN_USER_ERROR,
+			payload: { msg: error.response.data.msg },
+		});
+	}
+	clearAlert();
 };
 ```
 
@@ -1965,32 +1963,32 @@ const loginUser = async (currentUser) => {
 reducer.js;
 
 if (action.type === LOGIN_USER_BEGIN) {
-  return {
-    ...state,
-    isLoading: true,
-  };
+	return {
+		...state,
+		isLoading: true,
+	};
 }
 if (action.type === LOGIN_USER_SUCCESS) {
-  return {
-    ...state,
-    isLoading: false,
-    user: action.payload.user,
-    token: action.payload.token,
-    userLocation: action.payload.location,
-    jobLocation: action.payload.location,
-    showAlert: true,
-    alertType: 'success',
-    alertText: 'Login Successful! Redirecting...',
-  };
+	return {
+		...state,
+		isLoading: false,
+		user: action.payload.user,
+		token: action.payload.token,
+		userLocation: action.payload.location,
+		jobLocation: action.payload.location,
+		showAlert: true,
+		alertType: 'success',
+		alertText: 'Login Successful! Redirecting...',
+	};
 }
 if (action.type === LOGIN_USER_ERROR) {
-  return {
-    ...state,
-    isLoading: false,
-    showAlert: true,
-    alertType: 'danger',
-    alertText: action.payload.msg,
-  };
+	return {
+		...state,
+		isLoading: false,
+		showAlert: true,
+		alertType: 'danger',
+		alertText: action.payload.msg,
+	};
 }
 ```
 
@@ -2007,52 +2005,52 @@ export const SETUP_USER_ERROR = 'SETUP_USER_ERROR';
 appContext.js;
 
 const setupUser = async ({ currentUser, endPoint, alertText }) => {
-  dispatch({ type: SETUP_USER_BEGIN });
-  try {
-    const { data } = await axios.post(`/api/v1/auth/${endPoint}`, currentUser);
+	dispatch({ type: SETUP_USER_BEGIN });
+	try {
+		const { data } = await axios.post(`/api/v1/auth/${endPoint}`, currentUser);
 
-    const { user, token, location } = data;
-    dispatch({
-      type: SETUP_USER_SUCCESS,
-      payload: { user, token, location, alertText },
-    });
-    addUserToLocalStorage({ user, token, location });
-  } catch (error) {
-    dispatch({
-      type: SETUP_USER_ERROR,
-      payload: { msg: error.response.data.msg },
-    });
-  }
-  clearAlert();
+		const { user, token, location } = data;
+		dispatch({
+			type: SETUP_USER_SUCCESS,
+			payload: { user, token, location, alertText },
+		});
+		addUserToLocalStorage({ user, token, location });
+	} catch (error) {
+		dispatch({
+			type: SETUP_USER_ERROR,
+			payload: { msg: error.response.data.msg },
+		});
+	}
+	clearAlert();
 };
 ```
 
 ```js
 reducer.js;
 if (action.type === SETUP_USER_BEGIN) {
-  return { ...state, isLoading: true };
+	return { ...state, isLoading: true };
 }
 if (action.type === SETUP_USER_SUCCESS) {
-  return {
-    ...state,
-    isLoading: false,
-    token: action.payload.token,
-    user: action.payload.user,
-    userLocation: action.payload.location,
-    jobLocation: action.payload.location,
-    showAlert: true,
-    alertType: 'success',
-    alertText: action.payload.alertText,
-  };
+	return {
+		...state,
+		isLoading: false,
+		token: action.payload.token,
+		user: action.payload.user,
+		userLocation: action.payload.location,
+		jobLocation: action.payload.location,
+		showAlert: true,
+		alertType: 'success',
+		alertText: action.payload.alertText,
+	};
 }
 if (action.type === SETUP_USER_ERROR) {
-  return {
-    ...state,
-    isLoading: false,
-    showAlert: true,
-    alertType: 'danger',
-    alertText: action.payload.msg,
-  };
+	return {
+		...state,
+		isLoading: false,
+		showAlert: true,
+		alertType: 'danger',
+		alertText: action.payload.msg,
+	};
 }
 ```
 
@@ -2062,26 +2060,26 @@ if (action.type === SETUP_USER_ERROR) {
 Register.js;
 
 const onSubmit = (e) => {
-  e.preventDefault();
-  const { name, email, password, isMember } = values;
-  if (!email || !password || (!isMember && !name)) {
-    displayAlert();
-    return;
-  }
-  const currentUser = { name, email, password };
-  if (isMember) {
-    setupUser({
-      currentUser,
-      endPoint: 'login',
-      alertText: 'Login Successful! Redirecting...',
-    });
-  } else {
-    setupUser({
-      currentUser,
-      endPoint: 'register',
-      alertText: 'User Created! Redirecting...',
-    });
-  }
+	e.preventDefault();
+	const { name, email, password, isMember } = values;
+	if (!email || !password || (!isMember && !name)) {
+		displayAlert();
+		return;
+	}
+	const currentUser = { name, email, password };
+	if (isMember) {
+		setupUser({
+			currentUser,
+			endPoint: 'login',
+			alertText: 'Login Successful! Redirecting...',
+		});
+	} else {
+		setupUser({
+			currentUser,
+			endPoint: 'register',
+			alertText: 'User Created! Redirecting...',
+		});
+	}
 };
 ```
 
@@ -2094,7 +2092,7 @@ const onSubmit = (e) => {
 - replace in home route
 
 ```js
-<Route path='/' element={<div>dashboard</div>} />
+<Route path="/" element={<div>dashboard</div>} />
 ```
 
 - create <b>dashboard</b> directory in pages
@@ -2136,15 +2134,15 @@ import { Outlet, Link } from 'react-router-dom';
 import Wrapper from '../../assets/wrappers/SharedLayout';
 
 const SharedLayout = () => {
-  return (
-    <Wrapper>
-      <nav>
-        <Link to='all-jobs'>all jobs</Link>
-        <Link to='add-job'>all jobs</Link>
-      </nav>
-      <Outlet />
-    </Wrapper>
-  );
+	return (
+		<Wrapper>
+			<nav>
+				<Link to="all-jobs">all jobs</Link>
+				<Link to="add-job">all jobs</Link>
+			</nav>
+			<Outlet />
+		</Wrapper>
+	);
 };
 
 export default SharedLayout;
@@ -2164,12 +2162,12 @@ App.js
 
 ```js
 <Route
-  path='/'
-  element={
-    <ProtectedRoute>
-      <SharedLayout />
-    </ProtectedRoute>
-  }
+	path="/"
+	element={
+		<ProtectedRoute>
+			<SharedLayout />
+		</ProtectedRoute>
+	}
 />
 ```
 
@@ -2180,11 +2178,11 @@ import { Navigate } from 'react-router-dom';
 import { useAppContext } from '../context/appContext';
 
 const ProtectedRoute = ({ children }) => {
-  const { user } = useAppContext();
-  if (!user) {
-    return <Navigate to='/landing' />;
-  }
-  return children;
+	const { user } = useAppContext();
+	if (!user) {
+		return <Navigate to="/landing" />;
+	}
+	return children;
 };
 ```
 
@@ -2203,23 +2201,23 @@ import { Navbar, SmallSidebar, BigSidebar } from '../../components';
 import Wrapper from '../../assets/wrappers/SharedLayout';
 
 const SharedLayout = () => {
-  const { user } = useAppContext();
-  return (
-    <>
-      <Wrapper>
-        <main className='dashboard'>
-          <SmallSidebar />
-          <BigSidebar />
-          <div>
-            <Navbar />
-            <div className='dashboard-page'>
-              <Outlet />
-            </div>
-          </div>
-        </main>
-      </Wrapper>
-    </>
-  );
+	const { user } = useAppContext();
+	return (
+		<>
+			<Wrapper>
+				<main className="dashboard">
+					<SmallSidebar />
+					<BigSidebar />
+					<div>
+						<Navbar />
+						<div className="dashboard-page">
+							<Outlet />
+						</div>
+					</div>
+				</main>
+			</Wrapper>
+		</>
+	);
 };
 
 export default SharedLayout;
@@ -2262,39 +2260,39 @@ import { useAppContext } from '../context/appContext';
 import Logo from './Logo';
 import Wrapper from '../assets/wrappers/Navbar';
 const Navbar = () => {
-  return (
-    <Wrapper>
-      <div className='nav-center'>
-        <button
-          className='toggle-btn'
-          onClick={() => console.log('toggle sidebar')}
-        >
-          <FaAlignLeft />
-        </button>
+	return (
+		<Wrapper>
+			<div className="nav-center">
+				<button
+					className="toggle-btn"
+					onClick={() => console.log('toggle sidebar')}
+				>
+					<FaAlignLeft />
+				</button>
 
-        <div>
-          <Logo />
-          <h3 className='logo-text'>dashboard</h3>
-        </div>
+				<div>
+					<Logo />
+					<h3 className="logo-text">dashboard</h3>
+				</div>
 
-        <div className='btn-container'>
-          <button className='btn' onClick={() => console.log('show logout')}>
-            <FaUserCircle />
-            john
-            <FaCaretDown />
-          </button>
-          <div className='dropdown show-dropdown'>
-            <button
-              onClick={() => console.log('logout user')}
-              className='dropdown-btn'
-            >
-              logout
-            </button>
-          </div>
-        </div>
-      </div>
-    </Wrapper>
-  );
+				<div className="btn-container">
+					<button className="btn" onClick={() => console.log('show logout')}>
+						<FaUserCircle />
+						john
+						<FaCaretDown />
+					</button>
+					<div className="dropdown show-dropdown">
+						<button
+							onClick={() => console.log('logout user')}
+							className="dropdown-btn"
+						>
+							logout
+						</button>
+					</div>
+				</div>
+			</div>
+		</Wrapper>
+	);
 };
 
 export default Navbar;
@@ -2314,11 +2312,11 @@ export const TOGGLE_SIDEBAR = 'TOGGLE_SIDEBAR';
 appContext.js;
 
 const initialState = {
-  showSidebar: false,
+	showSidebar: false,
 };
 
 const toggleSidebar = () => {
-  dispatch({ type: TOGGLE_SIDEBAR });
+	dispatch({ type: TOGGLE_SIDEBAR });
 };
 ```
 
@@ -2326,7 +2324,7 @@ const toggleSidebar = () => {
 reducer.js;
 
 if (action.type === TOGGLE_SIDEBAR) {
-  return { ...state, showSidebar: !state.showSidebar };
+	return { ...state, showSidebar: !state.showSidebar };
 }
 ```
 
@@ -2336,9 +2334,9 @@ Navbar.js;
 const { toggleSidebar } = useAppContext();
 
 return (
-  <button className='toggle-btn' onClick={toggleSidebar}>
-    <FaAlignLeft />
-  </button>
+	<button className="toggle-btn" onClick={toggleSidebar}>
+		<FaAlignLeft />
+	</button>
 );
 ```
 
@@ -2391,13 +2389,13 @@ reducer.js;
 import { initialState } from './appContext';
 
 if (action.type === LOGOUT_USER) {
-  return {
-    ...initialState,
-    user: null,
-    token: null,
-    userLocation: '',
-    jobLocation: '',
-  };
+	return {
+		...initialState,
+		user: null,
+		token: null,
+		userLocation: '',
+		jobLocation: '',
+	};
 }
 ```
 
@@ -2407,20 +2405,20 @@ Navbar.js;
 const { user, logoutUser, toggleSidebar } = useAppContext();
 
 return (
-  <div className='btn-container'>
-    <button className='btn' onClick={() => setShowLogout(!showLogout)}>
-      <FaUserCircle />
-      {user.name}
-      {user && user.name}
-      {user?.name} // optional chaining
-      <FaCaretDown />
-    </button>
-    <div className={showLogout ? 'dropdown show-dropdown' : 'dropdown'}>
-      <button onClick={logoutUser} className='dropdown-btn'>
-        logout
-      </button>
-    </div>
-  </div>
+	<div className="btn-container">
+		<button className="btn" onClick={() => setShowLogout(!showLogout)}>
+			<FaUserCircle />
+			{user.name}
+			{user && user.name}
+			{user?.name} // optional chaining
+			<FaCaretDown />
+		</button>
+		<div className={showLogout ? 'dropdown show-dropdown' : 'dropdown'}>
+			<button onClick={logoutUser} className="dropdown-btn">
+				logout
+			</button>
+		</div>
+	</div>
 );
 ```
 
@@ -2436,30 +2434,30 @@ import { FaWpforms } from 'react-icons/fa';
 import { ImProfile } from 'react-icons/im';
 
 const links = [
-  {
-    id: 1,
-    text: 'stats',
-    path: '/',
-    icon: <IoBarChartSharp />,
-  },
-  {
-    id: 2,
-    text: 'all jobs',
-    path: 'all-jobs',
-    icon: <MdQueryStats />,
-  },
-  {
-    id: 3,
-    text: 'add job',
-    path: 'add-job',
-    icon: <FaWpforms />,
-  },
-  {
-    id: 4,
-    text: 'profile',
-    path: 'profile',
-    icon: <ImProfile />,
-  },
+	{
+		id: 1,
+		text: 'stats',
+		path: '/',
+		icon: <IoBarChartSharp />,
+	},
+	{
+		id: 2,
+		text: 'all jobs',
+		path: 'all-jobs',
+		icon: <MdQueryStats />,
+	},
+	{
+		id: 3,
+		text: 'add job',
+		path: 'add-job',
+		icon: <FaWpforms />,
+	},
+	{
+		id: 4,
+		text: 'profile',
+		path: 'profile',
+		icon: <ImProfile />,
+	},
 ];
 
 export default links;
@@ -2478,21 +2476,21 @@ import { NavLink } from 'react-router-dom';
 import Logo from './Logo';
 
 export const SmallSidebar = () => {
-  return (
-    <Wrapper>
-      <div className='sidebar-container show-sidebar'>
-        <div className='content'>
-          <button className='close-btn' onClick={() => console.log('toggle')}>
-            <FaTimes />
-          </button>
-          <header>
-            <Logo />
-          </header>
-          <div className='nav-links'>nav links</div>
-        </div>
-      </div>
-    </Wrapper>
-  );
+	return (
+		<Wrapper>
+			<div className="sidebar-container show-sidebar">
+				<div className="content">
+					<button className="close-btn" onClick={() => console.log('toggle')}>
+						<FaTimes />
+					</button>
+					<header>
+						<Logo />
+					</header>
+					<div className="nav-links">nav links</div>
+				</div>
+			</div>
+		</Wrapper>
+	);
 };
 
 export default SmallSidebar;
@@ -2510,11 +2508,11 @@ const { showSidebar, toggleSidebar } = useAppContext();
 SmallSidebar.js;
 
 return (
-  <div
-    className={
-      showSidebar ? 'sidebar-container show-sidebar' : 'sidebar-container'
-    }
-  ></div>
+	<div
+		className={
+			showSidebar ? 'sidebar-container show-sidebar' : 'sidebar-container'
+		}
+	></div>
 );
 ```
 
@@ -2522,9 +2520,9 @@ return (
 SmallSidebar.js;
 
 return (
-  <button className='close-btn' onClick={toggleSidebar}>
-    <FaTimes />
-  </button>
+	<button className="close-btn" onClick={toggleSidebar}>
+		<FaTimes />
+	</button>
 );
 ```
 
@@ -2536,25 +2534,23 @@ SmallSidebar.js;
 import { NavLink } from 'react-router-dom';
 
 return (
-  <div className='nav-links'>
-    {links.map((link) => {
-      const { text, path, id, icon } = link;
+	<div className="nav-links">
+		{links.map((link) => {
+			const { text, path, id, icon } = link;
 
-      return (
-        <NavLink
-          to={path}
-          className={({ isActive }) =>
-            isActive ? 'nav-link active' : 'nav-link'
-          }
-          key={id}
-          onClick={toggleSidebar}
-        >
-          <span className='icon'>{icon}</span>
-          {text}
-        </NavLink>
-      );
-    })}
-  </div>
+			return (
+				<NavLink
+					to={path}
+					className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
+					key={id}
+					onClick={toggleSidebar}
+				>
+					<span className="icon">{icon}</span>
+					{text}
+				</NavLink>
+			);
+		})}
+	</div>
 );
 ```
 
@@ -2569,27 +2565,25 @@ import { NavLink } from 'react-router-dom';
 import links from '../utils/links';
 
 const NavLinks = ({ toggleSidebar }) => {
-  return (
-    <div className='nav-links'>
-      {links.map((link) => {
-        const { text, path, id, icon } = link;
+	return (
+		<div className="nav-links">
+			{links.map((link) => {
+				const { text, path, id, icon } = link;
 
-        return (
-          <NavLink
-            to={path}
-            key={id}
-            onClick={toggleSidebar}
-            className={({ isActive }) =>
-              isActive ? 'nav-link active' : 'nav-link'
-            }
-          >
-            <span className='icon'>{icon}</span>
-            {text}
-          </NavLink>
-        );
-      })}
-    </div>
-  );
+				return (
+					<NavLink
+						to={path}
+						key={id}
+						onClick={toggleSidebar}
+						className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
+					>
+						<span className="icon">{icon}</span>
+						{text}
+					</NavLink>
+				);
+			})}
+		</div>
+	);
 };
 
 export default NavLinks;
@@ -2612,23 +2606,23 @@ import Logo from '../components/Logo';
 import Wrapper from '../assets/wrappers/BigSidebar';
 
 const BigSidebar = () => {
-  const { showSidebar } = useAppContext();
-  return (
-    <Wrapper>
-      <div
-        className={
-          showSidebar ? 'sidebar-container ' : 'sidebar-container show-sidebar'
-        }
-      >
-        <div className='content'>
-          <header>
-            <Logo />
-          </header>
-          <NavLinks />
-        </div>
-      </div>
-    </Wrapper>
-  );
+	const { showSidebar } = useAppContext();
+	return (
+		<Wrapper>
+			<div
+				className={
+					showSidebar ? 'sidebar-container ' : 'sidebar-container show-sidebar'
+				}
+			>
+				<div className="content">
+					<header>
+						<Logo />
+					</header>
+					<NavLinks />
+				</div>
+			</div>
+		</Wrapper>
+	);
 };
 
 export default BigSidebar;
@@ -2657,8 +2651,8 @@ end
 
 ```js
 const auth = async (req, res, next) => {
-  console.log('authenticate user');
-  next();
+	console.log('authenticate user');
+	next();
 };
 
 export default auth;
@@ -2706,11 +2700,11 @@ Authorization: Bearer <token>
 auth.js;
 
 const auth = async (req, res, next) => {
-  const headers = req.headers;
-  const authHeader = req.headers.authorization;
-  console.log(headers);
-  console.log(authHeader);
-  next();
+	const headers = req.headers;
+	const authHeader = req.headers.authorization;
+	console.log(headers);
+	console.log(authHeader);
+	next();
 };
 ```
 
@@ -2726,9 +2720,9 @@ pm.globals.set('token', jsonData.token);
 Type: Bearer;
 
 Token: {
-  {
-    token;
-  }
+	{
+		token;
+	}
 }
 ```
 
@@ -2740,15 +2734,15 @@ auth.js;
 import { UnAuthenticatedError } from '../errors/index.js';
 
 const auth = async (req, res, next) => {
-  const authHeader = req.headers.authorization;
+	const authHeader = req.headers.authorization;
 
-  if (!authHeader) {
-    // why, well is it 400 or 404?
-    // actually 401
-    throw new UnAuthenticatedError('Authentication Invalid');
-  }
+	if (!authHeader) {
+		// why, well is it 400 or 404?
+		// actually 401
+		throw new UnAuthenticatedError('Authentication Invalid');
+	}
 
-  next();
+	next();
 };
 ```
 
@@ -2759,23 +2753,23 @@ import jwt from 'jsonwebtoken';
 import { UnAuthenticatedError } from '../errors/index.js';
 
 const auth = async (req, res, next) => {
-  // check header
-  const authHeader = req.headers.authorization;
-  if (!authHeader || !authHeader.startsWith('Bearer')) {
-    throw new UnauthenticatedError('Authentication invalid');
-  }
-  const token = authHeader.split(' ')[1];
+	// check header
+	const authHeader = req.headers.authorization;
+	if (!authHeader || !authHeader.startsWith('Bearer')) {
+		throw new UnauthenticatedError('Authentication invalid');
+	}
+	const token = authHeader.split(' ')[1];
 
-  try {
-    const payload = jwt.verify(token, process.env.JWT_SECRET);
-    // console.log(payload)
-    // attach the user request object
-    // req.user = payload
-    req.user = { userId: payload.userId };
-    next();
-  } catch (error) {
-    throw new UnauthenticatedError('Authentication invalid');
-  }
+	try {
+		const payload = jwt.verify(token, process.env.JWT_SECRET);
+		// console.log(payload)
+		// attach the user request object
+		// req.user = payload
+		req.user = { userId: payload.userId };
+		next();
+	} catch (error) {
+		throw new UnauthenticatedError('Authentication invalid');
+	}
 };
 
 export default auth;
@@ -2785,30 +2779,30 @@ export default auth;
 
 ```js
 const updateUser = async (req, res) => {
-  const { email, name, lastName, location } = req.body;
-  if (!email || !name || !lastName || !location) {
-    throw new BadRequestError('Please provide all values');
-  }
+	const { email, name, lastName, location } = req.body;
+	if (!email || !name || !lastName || !location) {
+		throw new BadRequestError('Please provide all values');
+	}
 
-  const user = await User.findOne({ _id: req.user.userId });
+	const user = await User.findOne({ _id: req.user.userId });
 
-  user.email = email;
-  user.name = name;
-  user.lastName = lastName;
-  user.location = location;
+	user.email = email;
+	user.name = name;
+	user.lastName = lastName;
+	user.location = location;
 
-  await user.save();
+	await user.save();
 
-  // various setups
-  // in this case only id
-  // if other properties included, must re-generate
+	// various setups
+	// in this case only id
+	// if other properties included, must re-generate
 
-  const token = user.createJWT();
-  res.status(StatusCodes.OK).json({
-    user,
-    token,
-    location: user.location,
-  });
+	const token = user.createJWT();
+	res.status(StatusCodes.OK).json({
+		user,
+		token,
+		location: user.location,
+	});
 };
 ```
 
@@ -2820,12 +2814,12 @@ const updateUser = async (req, res) => {
 User.js;
 
 UserSchema.pre('save', async function () {
-  console.log(this.modifiedPaths());
-  console.log(this.isModified('name'));
+	console.log(this.modifiedPaths());
+	console.log(this.isModified('name'));
 
-  // if (!this.isModified('password')) return
-  // const salt = await bcrypt.genSalt(10)
-  // this.password = await bcrypt.hash(this.password, salt)
+	// if (!this.isModified('password')) return
+	// const salt = await bcrypt.genSalt(10)
+	// this.password = await bcrypt.hash(this.password, salt)
 });
 ```
 
@@ -2850,64 +2844,64 @@ import { useAppContext } from '../../context/appContext';
 import Wrapper from '../../assets/wrappers/DashboardFormPage';
 
 const Profile = () => {
-  const { user, showAlert, displayAlert, updateUser, isLoading } =
-    useAppContext();
-  const [name, setName] = useState(user?.name);
-  const [email, setEmail] = useState(user?.email);
-  const [lastName, setLastName] = useState(user?.lastName);
-  const [location, setLocation] = useState(user?.location);
+	const { user, showAlert, displayAlert, updateUser, isLoading } =
+		useAppContext();
+	const [name, setName] = useState(user?.name);
+	const [email, setEmail] = useState(user?.email);
+	const [lastName, setLastName] = useState(user?.lastName);
+	const [location, setLocation] = useState(user?.location);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!name || !email || !lastName || !location) {
-      // test and remove temporary
-      displayAlert();
-      return;
-    }
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		if (!name || !email || !lastName || !location) {
+			// test and remove temporary
+			displayAlert();
+			return;
+		}
 
-    updateUser({ name, email, lastName, location });
-  };
-  return (
-    <Wrapper>
-      <form className='form' onSubmit={handleSubmit}>
-        <h3>profile </h3>
-        {showAlert && <Alert />}
+		updateUser({ name, email, lastName, location });
+	};
+	return (
+		<Wrapper>
+			<form className="form" onSubmit={handleSubmit}>
+				<h3>profile </h3>
+				{showAlert && <Alert />}
 
-        {/* name */}
-        <div className='form-center'>
-          <FormRow
-            type='text'
-            name='name'
-            value={name}
-            handleChange={(e) => setName(e.target.value)}
-          />
-          <FormRow
-            labelText='last name'
-            type='text'
-            name='lastName'
-            value={lastName}
-            handleChange={(e) => setLastName(e.target.value)}
-          />
-          <FormRow
-            type='email'
-            name='email'
-            value={email}
-            handleChange={(e) => setEmail(e.target.value)}
-          />
+				{/* name */}
+				<div className="form-center">
+					<FormRow
+						type="text"
+						name="name"
+						value={name}
+						handleChange={(e) => setName(e.target.value)}
+					/>
+					<FormRow
+						labelText="last name"
+						type="text"
+						name="lastName"
+						value={lastName}
+						handleChange={(e) => setLastName(e.target.value)}
+					/>
+					<FormRow
+						type="email"
+						name="email"
+						value={email}
+						handleChange={(e) => setEmail(e.target.value)}
+					/>
 
-          <FormRow
-            type='text'
-            name='location'
-            value={location}
-            handleChange={(e) => setLocation(e.target.value)}
-          />
-          <button className='btn btn-block' type='submit' disabled={isLoading}>
-            {isLoading ? 'Please Wait...' : 'save changes'}
-          </button>
-        </div>
-      </form>
-    </Wrapper>
-  );
+					<FormRow
+						type="text"
+						name="location"
+						value={location}
+						handleChange={(e) => setLocation(e.target.value)}
+					/>
+					<button className="btn btn-block" type="submit" disabled={isLoading}>
+						{isLoading ? 'Please Wait...' : 'save changes'}
+					</button>
+				</div>
+			</form>
+		</Wrapper>
+	);
 };
 
 export default Profile;
@@ -2919,16 +2913,16 @@ export default Profile;
 appContext.js;
 
 const updaterUser = async (currentUser) => {
-  try {
-    const { data } = await axios.patch('/api/v1/auth/updateUser', currentUser, {
-      headers: {
-        Authorization: `Bearer ${state.token}`,
-      },
-    });
-    console.log(data);
-  } catch (error) {
-    console.log(error.response);
-  }
+	try {
+		const { data } = await axios.patch('/api/v1/auth/updateUser', currentUser, {
+			headers: {
+				Authorization: `Bearer ${state.token}`,
+			},
+		});
+		console.log(data);
+	} catch (error) {
+		console.log(error.response);
+	}
 };
 ```
 
@@ -2952,18 +2946,18 @@ axios.defaults.headers['Authorization'] = `Bearer ${state.token}`;
 AppContext.js;
 
 const authFetch = axios.create({
-  baseURL: '/api/v1',
-  headers: {
-    Authorization: `Bearer ${state.token}`,
-  },
+	baseURL: '/api/v1',
+	headers: {
+		Authorization: `Bearer ${state.token}`,
+	},
 });
 
 const updaterUser = async (currentUser) => {
-  try {
-    const { data } = await authFetch.patch('/auth/updateUser', currentUser);
-  } catch (error) {
-    console.log(error.response);
-  }
+	try {
+		const { data } = await authFetch.patch('/auth/updateUser', currentUser);
+	} catch (error) {
+		console.log(error.response);
+	}
 };
 ```
 
@@ -2982,26 +2976,26 @@ appContext.js;
 
 // response interceptor
 authFetch.interceptors.request.use(
-  (config) => {
-    config.headers['Authorization'] = `Bearer ${state.token}`;
-    return config;
-  },
-  (error) => {
-    return Promise.reject(error);
-  }
+	(config) => {
+		config.headers['Authorization'] = `Bearer ${state.token}`;
+		return config;
+	},
+	(error) => {
+		return Promise.reject(error);
+	}
 );
 // response interceptor
 authFetch.interceptors.response.use(
-  (response) => {
-    return response;
-  },
-  (error) => {
-    console.log(error.response);
-    if (error.response.status === 401) {
-      console.log('AUTH ERROR');
-    }
-    return Promise.reject(error);
-  }
+	(response) => {
+		return response;
+	},
+	(error) => {
+		console.log(error.response);
+		if (error.response.status === 401) {
+			console.log('AUTH ERROR');
+		}
+		return Promise.reject(error);
+	}
 );
 ```
 
@@ -3018,26 +3012,26 @@ export const UPDATE_USER_ERROR = 'UPDATE_USER_ERROR';
 appContext.js;
 
 const updateUser = async (currentUser) => {
-  dispatch({ type: UPDATE_USER_BEGIN });
-  try {
-    const { data } = await authFetch.patch('/auth/updateUser', currentUser);
+	dispatch({ type: UPDATE_USER_BEGIN });
+	try {
+		const { data } = await authFetch.patch('/auth/updateUser', currentUser);
 
-    // no token
-    const { user, location, token } = data;
+		// no token
+		const { user, location, token } = data;
 
-    dispatch({
-      type: UPDATE_USER_SUCCESS,
-      payload: { user, location, token },
-    });
+		dispatch({
+			type: UPDATE_USER_SUCCESS,
+			payload: { user, location, token },
+		});
 
-    addUserToLocalStorage({ user, location, token });
-  } catch (error) {
-    dispatch({
-      type: UPDATE_USER_ERROR,
-      payload: { msg: error.response.data.msg },
-    });
-  }
-  clearAlert();
+		addUserToLocalStorage({ user, location, token });
+	} catch (error) {
+		dispatch({
+			type: UPDATE_USER_ERROR,
+			payload: { msg: error.response.data.msg },
+		});
+	}
+	clearAlert();
 };
 ```
 
@@ -3077,40 +3071,40 @@ if (action.type === UPDATE_USER_ERROR) {
 appContext.js;
 // response interceptor
 authFetch.interceptors.response.use(
-  (response) => {
-    return response;
-  },
-  (error) => {
-    if (error.response.status === 401) {
-      logoutUser();
-    }
-    return Promise.reject(error);
-  }
+	(response) => {
+		return response;
+	},
+	(error) => {
+		if (error.response.status === 401) {
+			logoutUser();
+		}
+		return Promise.reject(error);
+	}
 );
 
 const updateUser = async (currentUser) => {
-  dispatch({ type: UPDATE_USER_BEGIN });
-  try {
-    const { data } = await authFetch.patch('/auth/updateUser', currentUser);
+	dispatch({ type: UPDATE_USER_BEGIN });
+	try {
+		const { data } = await authFetch.patch('/auth/updateUser', currentUser);
 
-    // no token
-    const { user, location } = data;
+		// no token
+		const { user, location } = data;
 
-    dispatch({
-      type: UPDATE_USER_SUCCESS,
-      payload: { user, location, token },
-    });
+		dispatch({
+			type: UPDATE_USER_SUCCESS,
+			payload: { user, location, token },
+		});
 
-    addUserToLocalStorage({ user, location, token: initialState.token });
-  } catch (error) {
-    if (error.response.status !== 401) {
-      dispatch({
-        type: UPDATE_USER_ERROR,
-        payload: { msg: error.response.data.msg },
-      });
-    }
-  }
-  clearAlert();
+		addUserToLocalStorage({ user, location, token: initialState.token });
+	} catch (error) {
+		if (error.response.status !== 401) {
+			dispatch({
+				type: UPDATE_USER_ERROR,
+				payload: { msg: error.response.data.msg },
+			});
+		}
+	}
+	clearAlert();
 };
 ```
 
@@ -3124,40 +3118,40 @@ Job.js;
 import mongoose from 'mongoose';
 
 const JobSchema = new mongoose.Schema(
-  {
-    company: {
-      type: String,
-      required: [true, 'Please provide company name'],
-      maxlength: 50,
-    },
-    position: {
-      type: String,
-      required: [true, 'Please provide position'],
-      maxlength: 100,
-    },
-    status: {
-      type: String,
-      enum: ['interview', 'declined', 'pending'],
-      default: 'pending',
-    },
+	{
+		company: {
+			type: String,
+			required: [true, 'Please provide company name'],
+			maxlength: 50,
+		},
+		position: {
+			type: String,
+			required: [true, 'Please provide position'],
+			maxlength: 100,
+		},
+		status: {
+			type: String,
+			enum: ['interview', 'declined', 'pending'],
+			default: 'pending',
+		},
 
-    jobType: {
-      type: String,
-      enum: ['full-time', 'part-time', 'remote', 'internship'],
-      default: 'full-time',
-    },
-    jobLocation: {
-      type: String,
-      default: 'my city',
-      required: true,
-    },
-    createdBy: {
-      type: mongoose.Types.ObjectId,
-      ref: 'User',
-      required: [true, 'Please provide user'],
-    },
-  },
-  { timestamps: true }
+		jobType: {
+			type: String,
+			enum: ['full-time', 'part-time', 'remote', 'internship'],
+			default: 'full-time',
+		},
+		jobLocation: {
+			type: String,
+			default: 'my city',
+			required: true,
+		},
+		createdBy: {
+			type: mongoose.Types.ObjectId,
+			ref: 'User',
+			required: [true, 'Please provide user'],
+		},
+	},
+	{ timestamps: true }
 );
 
 export default mongoose.model('Job', JobSchema);
@@ -3173,16 +3167,16 @@ import { StatusCodes } from 'http-status-codes';
 import { BadRequestError, NotFoundError } from '../errors/index.js';
 
 const createJob = async (req, res) => {
-  const { position, company } = req.body;
+	const { position, company } = req.body;
 
-  if (!position || !company) {
-    throw new BadRequestError('Please Provide All Values');
-  }
+	if (!position || !company) {
+		throw new BadRequestError('Please Provide All Values');
+	}
 
-  req.body.createdBy = req.user.userId;
+	req.body.createdBy = req.user.userId;
 
-  const job = await Job.create(req.body);
-  res.status(StatusCodes.CREATED).json({ job });
+	const job = await Job.create(req.body);
+	res.status(StatusCodes.CREATED).json({ job });
 };
 ```
 
@@ -3191,15 +3185,15 @@ const createJob = async (req, res) => {
 ```js
 appContext.js;
 const initialState = {
-  isEditing: false,
-  editJobId: '',
-  position: '',
-  company: '',
-  // jobLocation
-  jobTypeOptions: ['full-time', 'part-time', 'remote', 'internship'],
-  jobType: 'full-time',
-  statusOptions: ['pending', 'interview', 'declined'],
-  status: 'pending',
+	isEditing: false,
+	editJobId: '',
+	position: '',
+	company: '',
+	// jobLocation
+	jobTypeOptions: ['full-time', 'part-time', 'remote', 'internship'],
+	jobType: 'full-time',
+	statusOptions: ['pending', 'interview', 'declined'],
+	status: 'pending',
 };
 ```
 
@@ -3210,81 +3204,81 @@ import { FormRow, Alert } from '../../components';
 import { useAppContext } from '../../context/appContext';
 import Wrapper from '../../assets/wrappers/DashboardFormPage';
 const AddJob = () => {
-  const {
-    isEditing,
-    showAlert,
-    displayAlert,
-    position,
-    company,
-    jobLocation,
-    jobType,
-    jobTypeOptions,
-    status,
-    statusOptions,
-  } = useAppContext();
+	const {
+		isEditing,
+		showAlert,
+		displayAlert,
+		position,
+		company,
+		jobLocation,
+		jobType,
+		jobTypeOptions,
+		status,
+		statusOptions,
+	} = useAppContext();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+	const handleSubmit = (e) => {
+		e.preventDefault();
 
-    if (!position || !company || !jobLocation) {
-      displayAlert();
-      return;
-    }
-    console.log('create job');
-  };
+		if (!position || !company || !jobLocation) {
+			displayAlert();
+			return;
+		}
+		console.log('create job');
+	};
 
-  const handleJobInput = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
-    console.log(`${name}:${value}`);
-  };
+	const handleJobInput = (e) => {
+		const name = e.target.name;
+		const value = e.target.value;
+		console.log(`${name}:${value}`);
+	};
 
-  return (
-    <Wrapper>
-      <form className='form'>
-        <h3>{isEditing ? 'edit job' : 'add job'} </h3>
-        {showAlert && <Alert />}
+	return (
+		<Wrapper>
+			<form className="form">
+				<h3>{isEditing ? 'edit job' : 'add job'} </h3>
+				{showAlert && <Alert />}
 
-        {/* position */}
-        <div className='form-center'>
-          <FormRow
-            type='text'
-            name='position'
-            value={position}
-            handleChange={handleJobInput}
-          />
-          {/* company */}
-          <FormRow
-            type='text'
-            name='company'
-            value={company}
-            handleChange={handleJobInput}
-          />
-          {/* location */}
-          <FormRow
-            type='text'
-            labelText='location'
-            name='jobLocation'
-            value={jobLocation}
-            handleChange={handleJobInput}
-          />
-          {/* job type */}
+				{/* position */}
+				<div className="form-center">
+					<FormRow
+						type="text"
+						name="position"
+						value={position}
+						handleChange={handleJobInput}
+					/>
+					{/* company */}
+					<FormRow
+						type="text"
+						name="company"
+						value={company}
+						handleChange={handleJobInput}
+					/>
+					{/* location */}
+					<FormRow
+						type="text"
+						labelText="location"
+						name="jobLocation"
+						value={jobLocation}
+						handleChange={handleJobInput}
+					/>
+					{/* job type */}
 
-          {/* job status */}
+					{/* job status */}
 
-          <div className='btn-container'>
-            <button
-              className='btn btn-block submit-btn'
-              type='submit'
-              onClick={handleSubmit}
-            >
-              submit
-            </button>
-          </div>
-        </div>
-      </form>
-    </Wrapper>
-  );
+					<div className="btn-container">
+						<button
+							className="btn btn-block submit-btn"
+							type="submit"
+							onClick={handleSubmit}
+						>
+							submit
+						</button>
+					</div>
+				</div>
+			</form>
+		</Wrapper>
+	);
 };
 
 export default AddJob;
@@ -3294,27 +3288,27 @@ export default AddJob;
 
 ```js
 return (
-  // job type
-  <div className='form-row'>
-    <label htmlFor='jobType' className='form-label'>
-      job type
-    </label>
+	// job type
+	<div className="form-row">
+		<label htmlFor="jobType" className="form-label">
+			job type
+		</label>
 
-    <select
-      name='jobType'
-      value={jobType}
-      onChange={handleJobInput}
-      className='form-select'
-    >
-      {jobTypeOptions.map((itemValue, index) => {
-        return (
-          <option key={index} value={itemValue}>
-            {itemValue}
-          </option>
-        );
-      })}
-    </select>
-  </div>
+		<select
+			name="jobType"
+			value={jobType}
+			onChange={handleJobInput}
+			className="form-select"
+		>
+			{jobTypeOptions.map((itemValue, index) => {
+				return (
+					<option key={index} value={itemValue}>
+						{itemValue}
+					</option>
+				);
+			})}
+		</select>
+	</div>
 );
 ```
 
@@ -3325,28 +3319,28 @@ return (
 
 ```js
 const FormRowSelect = ({ labelText, name, value, handleChange, list }) => {
-  return (
-    <div className='form-row'>
-      <label htmlFor={name} className='form-label'>
-        {labelText || name}
-      </label>
+	return (
+		<div className="form-row">
+			<label htmlFor={name} className="form-label">
+				{labelText || name}
+			</label>
 
-      <select
-        name={name}
-        value={value}
-        onChange={handleChange}
-        className='form-select'
-      >
-        {list.map((itemValue, index) => {
-          return (
-            <option key={index} value={itemValue}>
-              {itemValue}
-            </option>
-          );
-        })}
-      </select>
-    </div>
-  );
+			<select
+				name={name}
+				value={value}
+				onChange={handleChange}
+				className="form-select"
+			>
+				{list.map((itemValue, index) => {
+					return (
+						<option key={index} value={itemValue}>
+							{itemValue}
+						</option>
+					);
+				})}
+			</select>
+		</div>
+	);
 };
 
 export default FormRowSelect;
@@ -3356,25 +3350,25 @@ export default FormRowSelect;
 AddJob.js;
 
 return (
-  <>
-    {/* job status */}
+	<>
+		{/* job status */}
 
-    <FormRowSelect
-      name='status'
-      value={status}
-      handleChange={handleJobInput}
-      list={statusOptions}
-    />
+		<FormRowSelect
+			name="status"
+			value={status}
+			handleChange={handleJobInput}
+			list={statusOptions}
+		/>
 
-    {/* job type */}
-    <FormRowSelect
-      labelText='type'
-      name='jobType'
-      value={jobType}
-      handleChange={handleJobInput}
-      list={jobTypeOptions}
-    />
-  </>
+		{/* job type */}
+		<FormRowSelect
+			labelText="type"
+			name="jobType"
+			value={jobType}
+			handleChange={handleJobInput}
+			list={jobTypeOptions}
+		/>
+	</>
 );
 ```
 
@@ -3405,7 +3399,7 @@ value={{handleChange}}
 reducer.js;
 
 if (action.type === HANDLE_CHANGE) {
-  return { ...state, [action.payload.name]: action.payload.value };
+	return { ...state, [action.payload.name]: action.payload.value };
 }
 ```
 
@@ -3415,7 +3409,7 @@ AddJob.js;
 const { handleChange } = useAppContext();
 
 const handleJobInput = (e) => {
-  handleChange({ name: e.target.name, value: e.target.value });
+	handleChange({ name: e.target.name, value: e.target.value });
 };
 ```
 
@@ -3441,16 +3435,16 @@ value={{clearValues}}
 reducer.js;
 
 if (action.type === CLEAR_VALUES) {
-  const initialState = {
-    isEditing: false,
-    editJobId: '',
-    position: '',
-    company: '',
-    jobLocation: state.userLocation,
-    jobType: 'full-time',
-    status: 'pending',
-  };
-  return { ...state, ...initialState };
+	const initialState = {
+		isEditing: false,
+		editJobId: '',
+		position: '',
+		company: '',
+		jobLocation: state.userLocation,
+		jobType: 'full-time',
+		status: 'pending',
+	};
+	return { ...state, ...initialState };
 }
 ```
 
@@ -3460,19 +3454,19 @@ AddJob.js;
 const { clearValues } = useAppContext();
 
 return (
-  <div className='btn-container'>
-    {/* submit button */}
+	<div className="btn-container">
+		{/* submit button */}
 
-    <button
-      className='btn btn-block clear-btn'
-      onClick={(e) => {
-        e.preventDefault();
-        clearValues();
-      }}
-    >
-      clear
-    </button>
-  </div>
+		<button
+			className="btn btn-block clear-btn"
+			onClick={(e) => {
+				e.preventDefault();
+				clearValues();
+			}}
+		>
+			clear
+		</button>
+	</div>
 );
 ```
 
@@ -3490,30 +3484,30 @@ export const CREATE_JOB_ERROR = 'CREATE_JOB_ERROR';
 appContext.js;
 
 const createJob = async () => {
-  dispatch({ type: CREATE_JOB_BEGIN });
-  try {
-    const { position, company, jobLocation, jobType, status } = state;
+	dispatch({ type: CREATE_JOB_BEGIN });
+	try {
+		const { position, company, jobLocation, jobType, status } = state;
 
-    await authFetch.post('/jobs', {
-      company,
-      position,
-      jobLocation,
-      jobType,
-      status,
-    });
-    dispatch({
-      type: CREATE_JOB_SUCCESS,
-    });
-    // call function instead clearValues()
-    dispatch({ type: CLEAR_VALUES });
-  } catch (error) {
-    if (error.response.status === 401) return;
-    dispatch({
-      type: CREATE_JOB_ERROR,
-      payload: { msg: error.response.data.msg },
-    });
-  }
-  clearAlert();
+		await authFetch.post('/jobs', {
+			company,
+			position,
+			jobLocation,
+			jobType,
+			status,
+		});
+		dispatch({
+			type: CREATE_JOB_SUCCESS,
+		});
+		// call function instead clearValues()
+		dispatch({ type: CLEAR_VALUES });
+	} catch (error) {
+		if (error.response.status === 401) return;
+		dispatch({
+			type: CREATE_JOB_ERROR,
+			payload: { msg: error.response.data.msg },
+		});
+	}
+	clearAlert();
 };
 ```
 
@@ -3523,18 +3517,18 @@ AddJob.js;
 const { createJob } = useAppContext();
 
 const handleSubmit = (e) => {
-  e.preventDefault();
-  // while testing
+	e.preventDefault();
+	// while testing
 
-  // if (!position || !company || !jobLocation) {
-  //   displayAlert()
-  //   return
-  // }
-  if (isEditing) {
-    // eventually editJob()
-    return;
-  }
-  createJob();
+	// if (!position || !company || !jobLocation) {
+	//   displayAlert()
+	//   return
+	// }
+	if (isEditing) {
+		// eventually editJob()
+		return;
+	}
+	createJob();
 };
 ```
 
@@ -3542,25 +3536,25 @@ const handleSubmit = (e) => {
 reducer.js;
 
 if (action.type === CREATE_JOB_BEGIN) {
-  return { ...state, isLoading: true };
+	return { ...state, isLoading: true };
 }
 if (action.type === CREATE_JOB_SUCCESS) {
-  return {
-    ...state,
-    isLoading: false,
-    showAlert: true,
-    alertType: 'success',
-    alertText: 'New Job Created!',
-  };
+	return {
+		...state,
+		isLoading: false,
+		showAlert: true,
+		alertType: 'success',
+		alertText: 'New Job Created!',
+	};
 }
 if (action.type === CREATE_JOB_ERROR) {
-  return {
-    ...state,
-    isLoading: false,
-    showAlert: true,
-    alertType: 'danger',
-    alertText: action.payload.msg,
-  };
+	return {
+		...state,
+		isLoading: false,
+		showAlert: true,
+		alertType: 'danger',
+		alertText: action.payload.msg,
+	};
 }
 ```
 
@@ -3570,11 +3564,11 @@ if (action.type === CREATE_JOB_ERROR) {
 jobsController.js;
 
 const getAllJobs = async (req, res) => {
-  const jobs = await Job.find({ createdBy: req.user.userId });
+	const jobs = await Job.find({ createdBy: req.user.userId });
 
-  res
-    .status(StatusCodes.OK)
-    .json({ jobs, totalJobs: jobs.length, numOfPages: 1 });
+	res
+		.status(StatusCodes.OK)
+		.json({ jobs, totalJobs: jobs.length, numOfPages: 1 });
 };
 ```
 
@@ -3584,10 +3578,10 @@ const getAllJobs = async (req, res) => {
 appContext.js;
 
 const initialState = {
-  jobs: [],
-  totalJobs: 0,
-  numOfPages: 1,
-  page: 1,
+	jobs: [],
+	totalJobs: 0,
+	numOfPages: 1,
+	page: 1,
 };
 ```
 
@@ -3638,16 +3632,16 @@ value={{getJobs}}
 reducer.js;
 
 if (action.type === GET_JOBS_BEGIN) {
-  return { ...state, isLoading: true, showAlert: false };
+	return { ...state, isLoading: true, showAlert: false };
 }
 if (action.type === GET_JOBS_SUCCESS) {
-  return {
-    ...state,
-    isLoading: false,
-    jobs: action.payload.jobs,
-    totalJobs: action.payload.totalJobs,
-    numOfPages: action.payload.numOfPages,
-  };
+	return {
+		...state,
+		isLoading: false,
+		jobs: action.payload.jobs,
+		totalJobs: action.payload.totalJobs,
+		numOfPages: action.payload.numOfPages,
+	};
 }
 ```
 
@@ -3664,12 +3658,12 @@ AllJobs.js;
 
 import { JobsContainer, SearchContainer } from '../../components';
 const AllJobs = () => {
-  return (
-    <>
-      <SearchContainer />
-      <JobsContainer />
-    </>
-  );
+	return (
+		<>
+			<SearchContainer />
+			<JobsContainer />
+		</>
+	);
 };
 
 export default AllJobs;
@@ -3684,33 +3678,33 @@ import Job from './Job';
 import Wrapper from '../assets/wrappers/JobsContainer';
 
 const JobsContainer = () => {
-  const { getJobs, jobs, isLoading, page, totalJobs } = useAppContext();
-  useEffect(() => {
-    getJobs();
-  }, []);
+	const { getJobs, jobs, isLoading, page, totalJobs } = useAppContext();
+	useEffect(() => {
+		getJobs();
+	}, []);
 
-  if (isLoading) {
-    return <Loading center />;
-  }
-  if (jobs.length === 0) {
-    return (
-      <Wrapper>
-        <h2>No jobs to display...</h2>
-      </Wrapper>
-    );
-  }
-  return (
-    <Wrapper>
-      <h5>
-        {totalJobs} job{jobs.length > 1 && 's'} found
-      </h5>
-      <div className='jobs'>
-        {jobs.map((job) => {
-          return <Job key={job._id} {...job} />;
-        })}
-      </div>
-    </Wrapper>
-  );
+	if (isLoading) {
+		return <Loading center />;
+	}
+	if (jobs.length === 0) {
+		return (
+			<Wrapper>
+				<h2>No jobs to display...</h2>
+			</Wrapper>
+		);
+	}
+	return (
+		<Wrapper>
+			<h5>
+				{totalJobs} job{jobs.length > 1 && 's'} found
+			</h5>
+			<div className="jobs">
+				{jobs.map((job) => {
+					return <Job key={job._id} {...job} />;
+				})}
+			</div>
+		</Wrapper>
+	);
 };
 
 export default JobsContainer;
@@ -3722,7 +3716,7 @@ Job.js;
 import moment from 'moment';
 
 const Job = ({ company }) => {
-  return <h5>{company}</h5>;
+	return <h5>{company}</h5>;
 };
 
 export default Job;
@@ -3747,14 +3741,14 @@ Job.js;
 import moment from 'moment';
 
 const Job = ({ company, createdAt }) => {
-  let date = moment(createdAt);
-  date = date.format('MMM Do, YYYY');
-  return (
-    <div>
-      <h5>{company}</h5>
-      <h5>{date}</h5>
-    </div>
-  );
+	let date = moment(createdAt);
+	date = date.format('MMM Do, YYYY');
+	return (
+		<div>
+			<h5>{company}</h5>
+			<h5>{date}</h5>
+		</div>
+	);
 };
 
 export default Job;
@@ -3784,51 +3778,51 @@ import Wrapper from '../assets/wrappers/Job';
 import JobInfo from './JobInfo';
 
 const Job = ({
-  _id,
-  position,
-  company,
-  jobLocation,
-  jobType,
-  createdAt,
-  status,
+	_id,
+	position,
+	company,
+	jobLocation,
+	jobType,
+	createdAt,
+	status,
 }) => {
-  const { setEditJob, deleteJob } = useAppContext();
+	const { setEditJob, deleteJob } = useAppContext();
 
-  let date = moment(createdAt);
-  date = date.format('MMM Do, YYYY');
+	let date = moment(createdAt);
+	date = date.format('MMM Do, YYYY');
 
-  return (
-    <Wrapper>
-      <header>
-        <div className='main-icon'>{company.charAt(0)}</div>
-        <div className='info'>
-          <h5>{position}</h5>
-          <p>{company}</p>
-        </div>
-      </header>
-      <div className='content'>
-        {/* content center later */}
-        <footer>
-          <div className='actions'>
-            <Link
-              to='/add-job'
-              onClick={() => setEditJob(_id)}
-              className='btn edit-btn'
-            >
-              Edit
-            </Link>
-            <button
-              type='button'
-              className='btn delete-btn'
-              onClick={() => deleteJob(_id)}
-            >
-              Delete
-            </button>
-          </div>
-        </footer>
-      </div>
-    </Wrapper>
-  );
+	return (
+		<Wrapper>
+			<header>
+				<div className="main-icon">{company.charAt(0)}</div>
+				<div className="info">
+					<h5>{position}</h5>
+					<p>{company}</p>
+				</div>
+			</header>
+			<div className="content">
+				{/* content center later */}
+				<footer>
+					<div className="actions">
+						<Link
+							to="/add-job"
+							onClick={() => setEditJob(_id)}
+							className="btn edit-btn"
+						>
+							Edit
+						</Link>
+						<button
+							type="button"
+							className="btn delete-btn"
+							onClick={() => deleteJob(_id)}
+						>
+							Delete
+						</button>
+					</div>
+				</footer>
+			</div>
+		</Wrapper>
+	);
 };
 
 export default Job;
@@ -3842,12 +3836,12 @@ JobInfo.js;
 import Wrapper from '../assets/wrappers/JobInfo';
 
 const JobInfo = ({ icon, text }) => {
-  return (
-    <Wrapper>
-      <span className='icon'>{icon}</span>
-      <span className='text'>{text}</span>
-    </Wrapper>
-  );
+	return (
+		<Wrapper>
+			<span className="icon">{icon}</span>
+			<span className="text">{text}</span>
+		</Wrapper>
+	);
 };
 
 export default JobInfo;
@@ -3856,15 +3850,15 @@ export default JobInfo;
 ```js
 Job.js;
 return (
-  <div className='content'>
-    <div className='content-center'>
-      <JobInfo icon={<FaLocationArrow />} text={jobLocation} />
-      <JobInfo icon={<FaCalendarAlt />} text={date} />
-      <JobInfo icon={<FaBriefcase />} text={jobType} />
-      <div className={`status ${status}`}>{status}</div>
-    </div>
-    {/* footer content */}
-  </div>
+	<div className="content">
+		<div className="content-center">
+			<JobInfo icon={<FaLocationArrow />} text={jobLocation} />
+			<JobInfo icon={<FaCalendarAlt />} text={date} />
+			<JobInfo icon={<FaBriefcase />} text={jobType} />
+			<div className={`status ${status}`}>{status}</div>
+		</div>
+		{/* footer content */}
+	</div>
 );
 ```
 
@@ -3891,18 +3885,18 @@ value={{editJob}}
 reducer.js;
 
 if (action.type === SET_EDIT_JOB) {
-  const job = state.jobs.find((job) => job._id === action.payload.id);
-  const { _id, position, company, jobLocation, jobType, status } = job;
-  return {
-    ...state,
-    isEditing: true,
-    editJobId: _id,
-    position,
-    company,
-    jobLocation,
-    jobType,
-    status,
-  };
+	const job = state.jobs.find((job) => job._id === action.payload.id);
+	const { _id, position, company, jobLocation, jobType, status } = job;
+	return {
+		...state,
+		isEditing: true,
+		editJobId: _id,
+		position,
+		company,
+		jobLocation,
+		jobType,
+		status,
+	};
 }
 ```
 
@@ -3910,17 +3904,17 @@ if (action.type === SET_EDIT_JOB) {
 AddJob.js;
 const { isEditing, editJob } = useAppContext();
 const handleSubmit = (e) => {
-  e.preventDefault();
+	e.preventDefault();
 
-  if (!position || !company || !jobLocation) {
-    displayAlert();
-    return;
-  }
-  if (isEditing) {
-    editJob();
-    return;
-  }
-  createJob();
+	if (!position || !company || !jobLocation) {
+		displayAlert();
+		return;
+	}
+	if (isEditing) {
+		editJob();
+		return;
+	}
+	createJob();
 };
 ```
 
@@ -3930,28 +3924,28 @@ const handleSubmit = (e) => {
 jobsController.js;
 
 const updateJob = async (req, res) => {
-  const { id: jobId } = req.params;
+	const { id: jobId } = req.params;
 
-  const { company, position } = req.body;
+	const { company, position } = req.body;
 
-  if (!company || !position) {
-    throw new BadRequestError('Please Provide All Values');
-  }
+	if (!company || !position) {
+		throw new BadRequestError('Please Provide All Values');
+	}
 
-  const job = await Job.findOne({ _id: jobId });
+	const job = await Job.findOne({ _id: jobId });
 
-  if (!job) {
-    throw new NotFoundError(`No job with id ${jobId}`);
-  }
+	if (!job) {
+		throw new NotFoundError(`No job with id ${jobId}`);
+	}
 
-  // check permissions
+	// check permissions
 
-  const updatedJob = await Job.findOneAndUpdate({ _id: jobId }, req.body, {
-    new: true,
-    runValidators: true,
-  });
+	const updatedJob = await Job.findOneAndUpdate({ _id: jobId }, req.body, {
+		new: true,
+		runValidators: true,
+	});
 
-  res.status(StatusCodes.OK).json({ updatedJob });
+	res.status(StatusCodes.OK).json({ updatedJob });
 };
 ```
 
@@ -3965,28 +3959,28 @@ const updateJob = async (req, res) => {
 ```js
 jobsController.js;
 const updateJob = async (req, res) => {
-  const { id: jobId } = req.params;
-  const { company, position, jobLocation } = req.body;
+	const { id: jobId } = req.params;
+	const { company, position, jobLocation } = req.body;
 
-  if (!position || !company) {
-    throw new BadRequestError('Please provide all values');
-  }
-  const job = await Job.findOne({ _id: jobId });
+	if (!position || !company) {
+		throw new BadRequestError('Please provide all values');
+	}
+	const job = await Job.findOne({ _id: jobId });
 
-  if (!job) {
-    throw new NotFoundError(`No job with id :${jobId}`);
-  }
+	if (!job) {
+		throw new NotFoundError(`No job with id :${jobId}`);
+	}
 
-  // check permissions
+	// check permissions
 
-  // alternative approach
+	// alternative approach
 
-  job.position = position;
-  job.company = company;
-  job.jobLocation = jobLocation;
+	job.position = position;
+	job.company = company;
+	job.jobLocation = jobLocation;
 
-  await job.save();
-  res.status(StatusCodes.OK).json({ job });
+	await job.save();
+	res.status(StatusCodes.OK).json({ job });
 };
 ```
 
@@ -3996,33 +3990,33 @@ const updateJob = async (req, res) => {
 jobsController.js;
 
 const updateJob = async (req, res) => {
-  const { id: jobId } = req.params;
-  const { company, position, status } = req.body;
+	const { id: jobId } = req.params;
+	const { company, position, status } = req.body;
 
-  if (!position || !company) {
-    throw new BadRequestError('Please provide all values');
-  }
-  const job = await Job.findOne({ _id: jobId });
+	if (!position || !company) {
+		throw new BadRequestError('Please provide all values');
+	}
+	const job = await Job.findOne({ _id: jobId });
 
-  if (!job) {
-    throw new NotFoundError(`No job with id :${jobId}`);
-  }
+	if (!job) {
+		throw new NotFoundError(`No job with id :${jobId}`);
+	}
 
-  // check permissions
-  // req.user.userId (string) === job.createdBy(object)
-  // throw new UnAuthenticatedError('Not authorized to access this route')
+	// check permissions
+	// req.user.userId (string) === job.createdBy(object)
+	// throw new UnAuthenticatedError('Not authorized to access this route')
 
-  // console.log(typeof req.user.userId)
-  // console.log(typeof job.createdBy)
+	// console.log(typeof req.user.userId)
+	// console.log(typeof job.createdBy)
 
-  checkPermissions(req.user, job.createdBy);
+	checkPermissions(req.user, job.createdBy);
 
-  const updatedJob = await Job.findOneAndUpdate({ _id: jobId }, req.body, {
-    new: true,
-    runValidators: true,
-  });
+	const updatedJob = await Job.findOneAndUpdate({ _id: jobId }, req.body, {
+		new: true,
+		runValidators: true,
+	});
 
-  res.status(StatusCodes.OK).json({ updatedJob });
+	res.status(StatusCodes.OK).json({ updatedJob });
 };
 ```
 
@@ -4036,9 +4030,9 @@ checkPermissions.js;
 import { UnAuthenticatedError } from '../errors/index.js';
 
 const checkPermissions = (requestUser, resourceUserId) => {
-  // if (requestUser.role === 'admin') return
-  if (requestUser.userId === resourceUserId.toString()) return;
-  throw new UnauthorizedError('Not authorized to access this route');
+	// if (requestUser.role === 'admin') return
+	if (requestUser.userId === resourceUserId.toString()) return;
+	throw new UnauthorizedError('Not authorized to access this route');
 };
 
 export default checkPermissions;
@@ -4050,18 +4044,18 @@ export default checkPermissions;
 jobsController.js;
 
 const deleteJob = async (req, res) => {
-  const { id: jobId } = req.params;
+	const { id: jobId } = req.params;
 
-  const job = await Job.findOne({ _id: jobId });
+	const job = await Job.findOne({ _id: jobId });
 
-  if (!job) {
-    throw new NotFoundError(`No job with id : ${jobId}`);
-  }
+	if (!job) {
+		throw new NotFoundError(`No job with id : ${jobId}`);
+	}
 
-  checkPermissions(req.user, job.createdBy);
+	checkPermissions(req.user, job.createdBy);
 
-  await job.remove();
-  res.status(StatusCodes.OK).json({ msg: 'Success! Job removed' });
+	await job.remove();
+	res.status(StatusCodes.OK).json({ msg: 'Success! Job removed' });
 };
 ```
 
@@ -4077,13 +4071,13 @@ export const DELETE_JOB_BEGIN = 'DELETE_JOB_BEGIN';
 appContext.js;
 
 const deleteJob = async (jobId) => {
-  dispatch({ type: DELETE_JOB_BEGIN });
-  try {
-    await authFetch.delete(`/jobs/${jobId}`);
-    getJobs();
-  } catch (error) {
-    logoutUser();
-  }
+	dispatch({ type: DELETE_JOB_BEGIN });
+	try {
+		await authFetch.delete(`/jobs/${jobId}`);
+		getJobs();
+	} catch (error) {
+		logoutUser();
+	}
 };
 ```
 
@@ -4091,7 +4085,7 @@ const deleteJob = async (jobId) => {
 reducer.js;
 
 if (action.type === DELETE_JOB_BEGIN) {
-  return { ...state, isLoading: true };
+	return { ...state, isLoading: true };
 }
 ```
 
@@ -4107,29 +4101,29 @@ export const EDIT_JOB_ERROR = 'EDIT_JOB_ERROR';
 ```js
 appContext.js;
 const editJob = async () => {
-  dispatch({ type: EDIT_JOB_BEGIN });
-  try {
-    const { position, company, jobLocation, jobType, status } = state;
+	dispatch({ type: EDIT_JOB_BEGIN });
+	try {
+		const { position, company, jobLocation, jobType, status } = state;
 
-    await authFetch.patch(`/jobs/${state.editJobId}`, {
-      company,
-      position,
-      jobLocation,
-      jobType,
-      status,
-    });
-    dispatch({
-      type: EDIT_JOB_SUCCESS,
-    });
-    dispatch({ type: CLEAR_VALUES });
-  } catch (error) {
-    if (error.response.status === 401) return;
-    dispatch({
-      type: EDIT_JOB_ERROR,
-      payload: { msg: error.response.data.msg },
-    });
-  }
-  clearAlert();
+		await authFetch.patch(`/jobs/${state.editJobId}`, {
+			company,
+			position,
+			jobLocation,
+			jobType,
+			status,
+		});
+		dispatch({
+			type: EDIT_JOB_SUCCESS,
+		});
+		dispatch({ type: CLEAR_VALUES });
+	} catch (error) {
+		if (error.response.status === 401) return;
+		dispatch({
+			type: EDIT_JOB_ERROR,
+			payload: { msg: error.response.data.msg },
+		});
+	}
+	clearAlert();
 };
 ```
 
@@ -4137,25 +4131,25 @@ const editJob = async () => {
 reducer.js;
 
 if (action.type === EDIT_JOB_BEGIN) {
-  return { ...state, isLoading: true };
+	return { ...state, isLoading: true };
 }
 if (action.type === EDIT_JOB_SUCCESS) {
-  return {
-    ...state,
-    isLoading: false,
-    showAlert: true,
-    alertType: 'success',
-    alertText: 'Job Updated!',
-  };
+	return {
+		...state,
+		isLoading: false,
+		showAlert: true,
+		alertType: 'success',
+		alertText: 'Job Updated!',
+	};
 }
 if (action.type === EDIT_JOB_ERROR) {
-  return {
-    ...state,
-    isLoading: false,
-    showAlert: true,
-    alertType: 'danger',
-    alertText: action.payload.msg,
-  };
+	return {
+		...state,
+		isLoading: false,
+		showAlert: true,
+		alertType: 'danger',
+		alertText: action.payload.msg,
+	};
 }
 ```
 
@@ -4180,20 +4174,20 @@ import connectDB from './db/connect.js';
 import Job from './models/Job.js';
 
 const start = async () => {
-  try {
-    await connectDB(process.env.MONGO_URL);
-    await Job.deleteMany();
+	try {
+		await connectDB(process.env.MONGO_URL);
+		await Job.deleteMany();
 
-    const jsonProducts = JSON.parse(
-      await readFile(new URL('./mock-data.json', import.meta.url))
-    );
-    await Job.create(jsonProducts);
-    console.log('Success!!!!');
-    process.exit(0);
-  } catch (error) {
-    console.log(error);
-    process.exit(1);
-  }
+		const jsonProducts = JSON.parse(
+			await readFile(new URL('./mock-data.json', import.meta.url))
+		);
+		await Job.create(jsonProducts);
+		console.log('Success!!!!');
+		process.exit(0);
+	} catch (error) {
+		console.log(error);
+		process.exit(1);
+	}
 };
 
 start();
@@ -4211,12 +4205,12 @@ jobsController.js;
 import mongoose from 'mongoose';
 
 const showStats = async (req, res) => {
-  let stats = await Job.aggregate([
-    { $match: { createdBy: mongoose.Types.ObjectId(req.user.userId) } },
-    { $group: { _id: '$status', count: { $sum: 1 } } },
-  ]);
+	let stats = await Job.aggregate([
+		{ $match: { createdBy: mongoose.Types.ObjectId(req.user.userId) } },
+		{ $group: { _id: '$status', count: { $sum: 1 } } },
+	]);
 
-  res.status(StatusCodes.OK).json({ stats });
+	res.status(StatusCodes.OK).json({ stats });
 };
 ```
 
@@ -4229,18 +4223,18 @@ const showStats = async (req, res) => {
 jobsController.js;
 
 const showStats = async (req, res) => {
-  let stats = await Job.aggregate([
-    { $match: { createdBy: mongoose.Types.ObjectId(req.user.userId) } },
-    { $group: { _id: '$status', count: { $sum: 1 } } },
-  ]);
+	let stats = await Job.aggregate([
+		{ $match: { createdBy: mongoose.Types.ObjectId(req.user.userId) } },
+		{ $group: { _id: '$status', count: { $sum: 1 } } },
+	]);
 
-  stats = stats.reduce((acc, curr) => {
-    const { _id: title, count } = curr;
-    acc[title] = count;
-    return acc;
-  }, {});
+	stats = stats.reduce((acc, curr) => {
+		const { _id: title, count } = curr;
+		acc[title] = count;
+		return acc;
+	}, {});
 
-  res.status(StatusCodes.OK).json({ stats });
+	res.status(StatusCodes.OK).json({ stats });
 };
 ```
 
@@ -4250,23 +4244,23 @@ const showStats = async (req, res) => {
 jobsController.js;
 
 const showStats = async (req, res) => {
-  let stats = await Job.aggregate([
-    { $match: { createdBy: mongoose.Types.ObjectId(req.user.userId) } },
-    { $group: { _id: '$status', count: { $sum: 1 } } },
-  ]);
-  stats = stats.reduce((acc, curr) => {
-    const { _id: title, count } = curr;
-    acc[title] = count;
-    return acc;
-  }, {});
+	let stats = await Job.aggregate([
+		{ $match: { createdBy: mongoose.Types.ObjectId(req.user.userId) } },
+		{ $group: { _id: '$status', count: { $sum: 1 } } },
+	]);
+	stats = stats.reduce((acc, curr) => {
+		const { _id: title, count } = curr;
+		acc[title] = count;
+		return acc;
+	}, {});
 
-  const defaultStats = {
-    pending: stats.pending || 0,
-    interview: stats.interview || 0,
-    declined: stats.declined || 0,
-  };
-  let monthlyApplications = [];
-  res.status(StatusCodes.OK).json({ defaultStats, monthlyApplications });
+	const defaultStats = {
+		pending: stats.pending || 0,
+		interview: stats.interview || 0,
+		declined: stats.declined || 0,
+	};
+	let monthlyApplications = [];
+	res.status(StatusCodes.OK).json({ defaultStats, monthlyApplications });
 };
 ```
 
@@ -4312,15 +4306,15 @@ clearAlert()
 ```js
 reducers.js;
 if (action.type === SHOW_STATS_BEGIN) {
-  return { ...state, isLoading: true, showAlert: false };
+	return { ...state, isLoading: true, showAlert: false };
 }
 if (action.type === SHOW_STATS_SUCCESS) {
-  return {
-    ...state,
-    isLoading: false,
-    stats: action.payload.stats,
-    monthlyApplications: action.payload.monthlyApplications,
-  };
+	return {
+		...state,
+		isLoading: false,
+		stats: action.payload.stats,
+		monthlyApplications: action.payload.monthlyApplications,
+	};
 }
 ```
 
@@ -4341,21 +4335,21 @@ import { useAppContext } from '../../context/appContext';
 import { StatsContainer, Loading, ChartsContainer } from '../../components';
 
 const Stats = () => {
-  const { showStats, isLoading, monthlyApplications } = useAppContext();
-  useEffect(() => {
-    showStats();
-  }, []);
+	const { showStats, isLoading, monthlyApplications } = useAppContext();
+	useEffect(() => {
+		showStats();
+	}, []);
 
-  if (isLoading) {
-    return <Loading center />;
-  }
+	if (isLoading) {
+		return <Loading center />;
+	}
 
-  return (
-    <>
-      <StatsContainer />
-      {monthlyApplications.length > 0 && <ChartsContainer />}
-    </>
-  );
+	return (
+		<>
+			<StatsContainer />
+			{monthlyApplications.length > 0 && <ChartsContainer />}
+		</>
+	);
 };
 
 export default Stats;
@@ -4371,38 +4365,38 @@ import StatItem from './StatItem';
 import { FaSuitcaseRolling, FaCalendarCheck, FaBug } from 'react-icons/fa';
 import Wrapper from '../assets/wrappers/StatsContainer';
 const StatsContainer = () => {
-  const { stats } = useAppContext();
-  const defaultStats = [
-    {
-      title: 'pending applications',
-      count: stats.pending || 0,
-      icon: <FaSuitcaseRolling />,
-      color: '#e9b949',
-      bcg: '#fcefc7',
-    },
-    {
-      title: 'interviews scheduled',
-      count: stats.interview || 0,
-      icon: <FaCalendarCheck />,
-      color: '#647acb',
-      bcg: '#e0e8f9',
-    },
-    {
-      title: 'jobs declined',
-      count: stats.declined || 0,
-      icon: <FaBug />,
-      color: '#d66a6a',
-      bcg: '#ffeeee',
-    },
-  ];
+	const { stats } = useAppContext();
+	const defaultStats = [
+		{
+			title: 'pending applications',
+			count: stats.pending || 0,
+			icon: <FaSuitcaseRolling />,
+			color: '#e9b949',
+			bcg: '#fcefc7',
+		},
+		{
+			title: 'interviews scheduled',
+			count: stats.interview || 0,
+			icon: <FaCalendarCheck />,
+			color: '#647acb',
+			bcg: '#e0e8f9',
+		},
+		{
+			title: 'jobs declined',
+			count: stats.declined || 0,
+			icon: <FaBug />,
+			color: '#d66a6a',
+			bcg: '#ffeeee',
+		},
+	];
 
-  return (
-    <Wrapper>
-      {defaultStats.map((item, index) => {
-        return <StatItem key={index} {...item} />;
-      })}
-    </Wrapper>
-  );
+	return (
+		<Wrapper>
+			{defaultStats.map((item, index) => {
+				return <StatItem key={index} {...item} />;
+			})}
+		</Wrapper>
+	);
 };
 
 export default StatsContainer;
@@ -4416,15 +4410,15 @@ StatItem.js;
 import Wrapper from '../assets/wrappers/StatItem';
 
 function StatItem({ count, title, icon, color, bcg }) {
-  return (
-    <Wrapper color={color} bcg={bcg}>
-      <header>
-        <span className='count'>{count}</span>
-        <div className='icon'>{icon}</div>
-      </header>
-      <h5 className='title'>{title}</h5>
-    </Wrapper>
-  );
+	return (
+		<Wrapper color={color} bcg={bcg}>
+			<header>
+				<span className="count">{count}</span>
+				<div className="icon">{icon}</div>
+			</header>
+			<h5 className="title">{title}</h5>
+		</Wrapper>
+	);
 }
 
 export default StatItem;
@@ -4436,22 +4430,22 @@ export default StatItem;
 jobsController.js;
 
 let monthlyApplications = await Job.aggregate([
-  { $match: { createdBy: mongoose.Types.ObjectId(req.user.userId) } },
-  {
-    $group: {
-      _id: {
-        year: {
-          $year: '$createdAt',
-        },
-        month: {
-          $month: '$createdAt',
-        },
-      },
-      count: { $sum: 1 },
-    },
-  },
-  { $sort: { '_id.year': -1, '_id.month': -1 } },
-  { $limit: 6 },
+	{ $match: { createdBy: mongoose.Types.ObjectId(req.user.userId) } },
+	{
+		$group: {
+			_id: {
+				year: {
+					$year: '$createdAt',
+				},
+				month: {
+					$month: '$createdAt',
+				},
+			},
+			count: { $sum: 1 },
+		},
+	},
+	{ $sort: { '_id.year': -1, '_id.month': -1 } },
+	{ $limit: 6 },
 ]);
 ```
 
@@ -4470,19 +4464,19 @@ jobsController.js;
 import moment from 'moment';
 
 monthlyApplications = monthlyApplications
-  .map((item) => {
-    const {
-      _id: { year, month },
-      count,
-    } = item;
-    // accepts 0-11
-    const date = moment()
-      .month(month - 1)
-      .year(year)
-      .format('MMM Y');
-    return { date, count };
-  })
-  .reverse();
+	.map((item) => {
+		const {
+			_id: { year, month },
+			count,
+		} = item;
+		// accepts 0-11
+		const date = moment()
+			.month(month - 1)
+			.year(year)
+			.format('MMM Y');
+		return { date, count };
+	})
+	.reverse();
 ```
 
 #### Charts Container
@@ -4500,19 +4494,19 @@ import { useAppContext } from '../context/appContext';
 import Wrapper from '../assets/wrappers/ChartsContainer';
 
 export default function ChartsContainer() {
-  const [barChart, setBarChart] = useState(true);
-  const { monthlyApplications: data } = useAppContext();
+	const [barChart, setBarChart] = useState(true);
+	const { monthlyApplications: data } = useAppContext();
 
-  return (
-    <Wrapper>
-      <h4>Monthly Applications</h4>
+	return (
+		<Wrapper>
+			<h4>Monthly Applications</h4>
 
-      <button type='button' onClick={() => setBarChart(!barChart)}>
-        {barChart ? 'AreaChart' : 'BarChart'}
-      </button>
-      {barChart ? <BarChart data={data} /> : <AreaChart data={data} />}
-    </Wrapper>
-  );
+			<button type="button" onClick={() => setBarChart(!barChart)}>
+				{barChart ? 'AreaChart' : 'BarChart'}
+			</button>
+			{barChart ? <BarChart data={data} /> : <AreaChart data={data} />}
+		</Wrapper>
+	);
 }
 ```
 
@@ -4532,32 +4526,32 @@ npm install recharts
 BarChart.js;
 
 import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
+	BarChart,
+	Bar,
+	XAxis,
+	YAxis,
+	CartesianGrid,
+	Tooltip,
+	ResponsiveContainer,
 } from 'recharts';
 
 const BarChartComponent = ({ data }) => {
-  return (
-    <ResponsiveContainer width='100%' height={300}>
-      <BarChart
-        data={data}
-        margin={{
-          top: 50,
-        }}
-      >
-        <CartesianGrid strokeDasharray='3 3' />
-        <XAxis dataKey='date' />
-        <YAxis allowDecimals={false} />
-        <Tooltip />
-        <Bar dataKey='count' fill='#2cb1bc' barSize={75} />
-      </BarChart>
-    </ResponsiveContainer>
-  );
+	return (
+		<ResponsiveContainer width="100%" height={300}>
+			<BarChart
+				data={data}
+				margin={{
+					top: 50,
+				}}
+			>
+				<CartesianGrid strokeDasharray="3 3" />
+				<XAxis dataKey="date" />
+				<YAxis allowDecimals={false} />
+				<Tooltip />
+				<Bar dataKey="count" fill="#2cb1bc" barSize={75} />
+			</BarChart>
+		</ResponsiveContainer>
+	);
 };
 ```
 
@@ -4565,32 +4559,32 @@ const BarChartComponent = ({ data }) => {
 
 ```js
 import {
-  ResponsiveContainer,
-  AreaChart,
-  Area,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
+	ResponsiveContainer,
+	AreaChart,
+	Area,
+	XAxis,
+	YAxis,
+	CartesianGrid,
+	Tooltip,
 } from 'recharts';
 
 const AreaChartComponent = ({ data }) => {
-  return (
-    <ResponsiveContainer width='100%' height={300}>
-      <AreaChart
-        data={data}
-        margin={{
-          top: 50,
-        }}
-      >
-        <CartesianGrid strokeDasharray='3 3' />
-        <XAxis dataKey='date' />
-        <YAxis allowDecimals={false} />
-        <Tooltip />
-        <Area type='monotone' dataKey='count' stroke='#2cb1bc' fill='#bef8fd' />
-      </AreaChart>
-    </ResponsiveContainer>
-  );
+	return (
+		<ResponsiveContainer width="100%" height={300}>
+			<AreaChart
+				data={data}
+				margin={{
+					top: 50,
+				}}
+			>
+				<CartesianGrid strokeDasharray="3 3" />
+				<XAxis dataKey="date" />
+				<YAxis allowDecimals={false} />
+				<Tooltip />
+				<Area type="monotone" dataKey="count" stroke="#2cb1bc" fill="#bef8fd" />
+			</AreaChart>
+		</ResponsiveContainer>
+	);
 };
 ```
 
@@ -4602,22 +4596,22 @@ const AreaChartComponent = ({ data }) => {
 jobsController.js;
 
 const getAllJobs = async (req, res) => {
-  const { search, status, jobType, sort } = req.query;
+	const { search, status, jobType, sort } = req.query;
 
-  const queryObject = {
-    createdBy: req.user.userId,
-  };
+	const queryObject = {
+		createdBy: req.user.userId,
+	};
 
-  // NO AWAIT
-  let result = Job.find(queryObject);
+	// NO AWAIT
+	let result = Job.find(queryObject);
 
-  // chain sort conditions
+	// chain sort conditions
 
-  const jobs = await result;
+	const jobs = await result;
 
-  res
-    .status(StatusCodes.OK)
-    .json({ jobs, totalJobs: jobs.length, numOfPages: 1 });
+	res
+		.status(StatusCodes.OK)
+		.json({ jobs, totalJobs: jobs.length, numOfPages: 1 });
 };
 ```
 
@@ -4627,26 +4621,26 @@ const getAllJobs = async (req, res) => {
 jobsController.js;
 
 const getAllJobs = async (req, res) => {
-  const { search, status, jobType, sort } = req.query;
+	const { search, status, jobType, sort } = req.query;
 
-  const queryObject = {
-    createdBy: req.user.userId,
-  };
+	const queryObject = {
+		createdBy: req.user.userId,
+	};
 
-  if (status !== 'all') {
-    queryObject.status = status;
-  }
+	if (status !== 'all') {
+		queryObject.status = status;
+	}
 
-  // NO AWAIT
-  let result = Job.find(queryObject);
+	// NO AWAIT
+	let result = Job.find(queryObject);
 
-  // chain sort conditions
+	// chain sort conditions
 
-  const jobs = await result;
+	const jobs = await result;
 
-  res
-    .status(StatusCodes.OK)
-    .json({ jobs, totalJobs: jobs.length, numOfPages: 1 });
+	res
+		.status(StatusCodes.OK)
+		.json({ jobs, totalJobs: jobs.length, numOfPages: 1 });
 };
 ```
 
@@ -4656,28 +4650,28 @@ const getAllJobs = async (req, res) => {
 jobsController.js;
 
 const getAllJobs = async (req, res) => {
-  const { search, status, jobType, sort } = req.query;
+	const { search, status, jobType, sort } = req.query;
 
-  const queryObject = {
-    createdBy: req.user.userId,
-  };
+	const queryObject = {
+		createdBy: req.user.userId,
+	};
 
-  if (status !== 'all') {
-    queryObject.status = status;
-  }
-  if (jobType !== 'all') {
-    queryObject.jobType = jobType;
-  }
-  // NO AWAIT
-  let result = Job.find(queryObject);
+	if (status !== 'all') {
+		queryObject.status = status;
+	}
+	if (jobType !== 'all') {
+		queryObject.jobType = jobType;
+	}
+	// NO AWAIT
+	let result = Job.find(queryObject);
 
-  // chain sort conditions
+	// chain sort conditions
 
-  const jobs = await result;
+	const jobs = await result;
 
-  res
-    .status(StatusCodes.OK)
-    .json({ jobs, totalJobs: jobs.length, numOfPages: 1 });
+	res
+		.status(StatusCodes.OK)
+		.json({ jobs, totalJobs: jobs.length, numOfPages: 1 });
 };
 ```
 
@@ -4687,42 +4681,42 @@ const getAllJobs = async (req, res) => {
 jobsController.js;
 
 const getAllJobs = async (req, res) => {
-  const { search, status, jobType, sort } = req.query;
+	const { search, status, jobType, sort } = req.query;
 
-  const queryObject = {
-    createdBy: req.user.userId,
-  };
+	const queryObject = {
+		createdBy: req.user.userId,
+	};
 
-  if (status !== 'all') {
-    queryObject.status = status;
-  }
-  if (jobType !== 'all') {
-    queryObject.jobType = jobType;
-  }
-  if (search) {
-    queryObject.position = { $regex: search, $options: 'i' };
-  }
-  // NO AWAIT
-  let result = Job.find(queryObject);
+	if (status !== 'all') {
+		queryObject.status = status;
+	}
+	if (jobType !== 'all') {
+		queryObject.jobType = jobType;
+	}
+	if (search) {
+		queryObject.position = { $regex: search, $options: 'i' };
+	}
+	// NO AWAIT
+	let result = Job.find(queryObject);
 
-  // chain sort conditions
-  if (sort === 'latest') {
-    result = result.sort('-createdAt');
-  }
-  if (sort === 'oldest') {
-    result = result.sort('createdAt');
-  }
-  if (sort === 'a-z') {
-    result = result.sort('position');
-  }
-  if (sort === 'z-a') {
-    result = result.sort('-position');
-  }
-  const jobs = await result;
+	// chain sort conditions
+	if (sort === 'latest') {
+		result = result.sort('-createdAt');
+	}
+	if (sort === 'oldest') {
+		result = result.sort('createdAt');
+	}
+	if (sort === 'a-z') {
+		result = result.sort('position');
+	}
+	if (sort === 'z-a') {
+		result = result.sort('-position');
+	}
+	const jobs = await result;
 
-  res
-    .status(StatusCodes.OK)
-    .json({ jobs, totalJobs: jobs.length, numOfPages: 1 });
+	res
+		.status(StatusCodes.OK)
+		.json({ jobs, totalJobs: jobs.length, numOfPages: 1 });
 };
 ```
 
@@ -4771,41 +4765,41 @@ import { FormRow, FormRowSelect } from '.';
 import { useAppContext } from '../context/appContext';
 import Wrapper from '../assets/wrappers/SearchContainer';
 const SearchContainer = () => {
-  const {
-    isLoading,
-    search,
-    searchStatus,
-    searchType,
-    sort,
-    sortOptions,
-    statusOptions,
-    jobTypeOptions,
-    handleChange,
-    clearFilters,
-  } = useAppContext();
+	const {
+		isLoading,
+		search,
+		searchStatus,
+		searchType,
+		sort,
+		sortOptions,
+		statusOptions,
+		jobTypeOptions,
+		handleChange,
+		clearFilters,
+	} = useAppContext();
 
-  const handleSearch = (e) => {
-    if (isLoading) return;
-    handleChange({ name: e.target.name, value: e.target.value });
-  };
+	const handleSearch = (e) => {
+		if (isLoading) return;
+		handleChange({ name: e.target.name, value: e.target.value });
+	};
 
-  return (
-    <Wrapper>
-      <form className='form'>
-        <h4>search form</h4>
-        {/* search position */}
-        <div className='form-center'>
-          <FormRow
-            type='text'
-            name='search'
-            value={search}
-            handleChange={handleSearch}
-          ></FormRow>
-          {/* rest of the inputs */}
-        </div>
-      </form>
-    </Wrapper>
-  );
+	return (
+		<Wrapper>
+			<form className="form">
+				<h4>search form</h4>
+				{/* search position */}
+				<div className="form-center">
+					<FormRow
+						type="text"
+						name="search"
+						value={search}
+						handleChange={handleSearch}
+					></FormRow>
+					{/* rest of the inputs */}
+				</div>
+			</form>
+		</Wrapper>
+	);
 };
 
 export default SearchContainer;
@@ -4821,75 +4815,75 @@ import { useAppContext } from '../context/appContext';
 import Wrapper from '../assets/wrappers/SearchContainer';
 
 const SearchContainer = () => {
-  const {
-    isLoading,
-    search,
-    handleChange,
-    searchStatus,
-    statusOptions,
-    jobTypeOptions,
-    searchType,
-    clearFilters,
-    sort,
-    sortOptions,
-  } = useAppContext();
+	const {
+		isLoading,
+		search,
+		handleChange,
+		searchStatus,
+		statusOptions,
+		jobTypeOptions,
+		searchType,
+		clearFilters,
+		sort,
+		sortOptions,
+	} = useAppContext();
 
-  const handleSearch = (e) => {
-    if (isLoading) return;
-    handleChange({ name: e.target.name, value: e.target.value });
-  };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    clearFilters();
-  };
-  return (
-    <Wrapper>
-      <form className='form'>
-        <h4>search form</h4>
-        {/* search position */}
-        <div className='form-center'>
-          <FormRow
-            type='text'
-            name='search'
-            value={search}
-            handleChange={handleSearch}
-          ></FormRow>
-          {/* search by status */}
-          <FormRowSelect
-            labelText='job status'
-            name='searchStatus'
-            value={searchStatus}
-            handleChange={handleSearch}
-            list={['all', ...statusOptions]}
-          ></FormRowSelect>
-          {/* search by type */}
+	const handleSearch = (e) => {
+		if (isLoading) return;
+		handleChange({ name: e.target.name, value: e.target.value });
+	};
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		clearFilters();
+	};
+	return (
+		<Wrapper>
+			<form className="form">
+				<h4>search form</h4>
+				{/* search position */}
+				<div className="form-center">
+					<FormRow
+						type="text"
+						name="search"
+						value={search}
+						handleChange={handleSearch}
+					></FormRow>
+					{/* search by status */}
+					<FormRowSelect
+						labelText="job status"
+						name="searchStatus"
+						value={searchStatus}
+						handleChange={handleSearch}
+						list={['all', ...statusOptions]}
+					></FormRowSelect>
+					{/* search by type */}
 
-          <FormRowSelect
-            labelText='job type'
-            name='searchType'
-            value={searchType}
-            handleChange={handleSearch}
-            list={['all', ...jobTypeOptions]}
-          ></FormRowSelect>
-          {/* sort */}
+					<FormRowSelect
+						labelText="job type"
+						name="searchType"
+						value={searchType}
+						handleChange={handleSearch}
+						list={['all', ...jobTypeOptions]}
+					></FormRowSelect>
+					{/* sort */}
 
-          <FormRowSelect
-            name='sort'
-            value={sort}
-            handleChange={handleSearch}
-            list={sortOptions}
-          ></FormRowSelect>
-          <button
-            className='btn btn-block btn-danger'
-            disabled={isLoading}
-            onClick={handleSubmit}
-          >
-            clear filters
-          </button>
-        </div>
-      </form>
-    </Wrapper>
-  );
+					<FormRowSelect
+						name="sort"
+						value={sort}
+						handleChange={handleSearch}
+						list={sortOptions}
+					></FormRowSelect>
+					<button
+						className="btn btn-block btn-danger"
+						disabled={isLoading}
+						onClick={handleSubmit}
+					>
+						clear filters
+					</button>
+				</div>
+			</form>
+		</Wrapper>
+	);
 };
 
 export default SearchContainer;
@@ -4907,7 +4901,7 @@ export const CLEAR_FILTERS = 'CLEAR_FILTERS';
 appContext.js;
 
 const clearFilters = () => {
-  dispatch({ type: CLEAR_FILTERS });
+	dispatch({ type: CLEAR_FILTERS });
 };
 ```
 
@@ -4915,13 +4909,13 @@ const clearFilters = () => {
 reducer.js;
 
 if (action.type === CLEAR_FILTERS) {
-  return {
-    ...state,
-    search: '',
-    searchStatus: 'all',
-    searchType: 'all',
-    sort: 'latest',
-  };
+	return {
+		...state,
+		search: '',
+		searchStatus: 'all',
+		searchType: 'all',
+		sort: 'latest',
+	};
 }
 ```
 
@@ -4929,28 +4923,28 @@ if (action.type === CLEAR_FILTERS) {
 
 ```js
 const getJobs = async () => {
-  // will add page later
-  const { search, searchStatus, searchType, sort } = state;
-  let url = `/jobs?status=${searchStatus}&jobType=${searchType}&sort=${sort}`;
-  if (search) {
-    url = url + `&search=${search}`;
-  }
-  dispatch({ type: GET_JOBS_BEGIN });
-  try {
-    const { data } = await authFetch(url);
-    const { jobs, totalJobs, numOfPages } = data;
-    dispatch({
-      type: GET_JOBS_SUCCESS,
-      payload: {
-        jobs,
-        totalJobs,
-        numOfPages,
-      },
-    });
-  } catch (error) {
-    // logoutUser()
-  }
-  clearAlert();
+	// will add page later
+	const { search, searchStatus, searchType, sort } = state;
+	let url = `/jobs?status=${searchStatus}&jobType=${searchType}&sort=${sort}`;
+	if (search) {
+		url = url + `&search=${search}`;
+	}
+	dispatch({ type: GET_JOBS_BEGIN });
+	try {
+		const { data } = await authFetch(url);
+		const { jobs, totalJobs, numOfPages } = data;
+		dispatch({
+			type: GET_JOBS_SUCCESS,
+			payload: {
+				jobs,
+				totalJobs,
+				numOfPages,
+			},
+		});
+	} catch (error) {
+		// logoutUser()
+	}
+	clearAlert();
 };
 ```
 
@@ -4982,47 +4976,47 @@ const JobsContainer = () => {
 jobsController.js;
 
 const getAllJobs = async (req, res) => {
-  const { search, status, jobType, sort } = req.query;
-  const queryObject = {
-    createdBy: req.user.userId,
-  };
-  if (search) {
-    queryObject.position = { $regex: search, $options: 'i' };
-  }
-  if (status !== 'all') {
-    queryObject.status = status;
-  }
-  if (jobType !== 'all') {
-    queryObject.jobType = jobType;
-  }
-  let result = Job.find(queryObject);
+	const { search, status, jobType, sort } = req.query;
+	const queryObject = {
+		createdBy: req.user.userId,
+	};
+	if (search) {
+		queryObject.position = { $regex: search, $options: 'i' };
+	}
+	if (status !== 'all') {
+		queryObject.status = status;
+	}
+	if (jobType !== 'all') {
+		queryObject.jobType = jobType;
+	}
+	let result = Job.find(queryObject);
 
-  if (sort === 'latest') {
-    result = result.sort('-createdAt');
-  }
-  if (sort === 'oldest') {
-    result = result.sort('createdAt');
-  }
-  if (sort === 'a-z') {
-    result = result.sort('position');
-  }
-  if (sort === 'z-a') {
-    result = result.sort('-position');
-  }
+	if (sort === 'latest') {
+		result = result.sort('-createdAt');
+	}
+	if (sort === 'oldest') {
+		result = result.sort('createdAt');
+	}
+	if (sort === 'a-z') {
+		result = result.sort('position');
+	}
+	if (sort === 'z-a') {
+		result = result.sort('-position');
+	}
 
-  const totalJobs = await result;
+	const totalJobs = await result;
 
-  // setup pagination
-  const limit = 10;
-  const skip = 1;
+	// setup pagination
+	const limit = 10;
+	const skip = 1;
 
-  result = result.skip(skip).limit(limit);
-  // 23
-  // 4 7 7 7 2
-  const jobs = await result;
-  res
-    .status(StatusCodes.OK)
-    .json({ jobs, totalJobs: jobs.length, numOfPages: 1 });
+	result = result.skip(skip).limit(limit);
+	// 23
+	// 4 7 7 7 2
+	const jobs = await result;
+	res
+		.status(StatusCodes.OK)
+		.json({ jobs, totalJobs: jobs.length, numOfPages: 1 });
 };
 ```
 
@@ -5032,45 +5026,45 @@ const getAllJobs = async (req, res) => {
 jobsController.js;
 
 const getAllJobs = async (req, res) => {
-  const { search, status, jobType, sort } = req.query;
-  const queryObject = {
-    createdBy: req.user.userId,
-  };
-  if (search) {
-    queryObject.position = { $regex: search, $options: 'i' };
-  }
-  if (status !== 'all') {
-    queryObject.status = status;
-  }
-  if (jobType !== 'all') {
-    queryObject.jobType = jobType;
-  }
-  let result = Job.find(queryObject);
+	const { search, status, jobType, sort } = req.query;
+	const queryObject = {
+		createdBy: req.user.userId,
+	};
+	if (search) {
+		queryObject.position = { $regex: search, $options: 'i' };
+	}
+	if (status !== 'all') {
+		queryObject.status = status;
+	}
+	if (jobType !== 'all') {
+		queryObject.jobType = jobType;
+	}
+	let result = Job.find(queryObject);
 
-  if (sort === 'latest') {
-    result = result.sort('-createdAt');
-  }
-  if (sort === 'oldest') {
-    result = result.sort('createdAt');
-  }
-  if (sort === 'a-z') {
-    result = result.sort('position');
-  }
-  if (sort === 'z-a') {
-    result = result.sort('-position');
-  }
+	if (sort === 'latest') {
+		result = result.sort('-createdAt');
+	}
+	if (sort === 'oldest') {
+		result = result.sort('createdAt');
+	}
+	if (sort === 'a-z') {
+		result = result.sort('position');
+	}
+	if (sort === 'z-a') {
+		result = result.sort('-position');
+	}
 
-  // setup pagination
-  const page = Number(req.query.page) || 1;
-  const limit = Number(req.query.limit) || 10;
-  const skip = (page - 1) * limit; //10
-  result = result.skip(skip).limit(limit);
-  // 75
-  // 10 10 10 10 10 10 10 5
-  const jobs = await result;
-  res
-    .status(StatusCodes.OK)
-    .json({ jobs, totalJobs: jobs.length, numOfPages: 1 });
+	// setup pagination
+	const page = Number(req.query.page) || 1;
+	const limit = Number(req.query.limit) || 10;
+	const skip = (page - 1) * limit; //10
+	result = result.skip(skip).limit(limit);
+	// 75
+	// 10 10 10 10 10 10 10 5
+	const jobs = await result;
+	res
+		.status(StatusCodes.OK)
+		.json({ jobs, totalJobs: jobs.length, numOfPages: 1 });
 };
 ```
 
@@ -5080,47 +5074,47 @@ const getAllJobs = async (req, res) => {
 jobsController.js;
 
 const getAllJobs = async (req, res) => {
-  const { search, status, jobType, sort } = req.query;
-  const queryObject = {
-    createdBy: req.user.userId,
-  };
-  if (search) {
-    queryObject.position = { $regex: search, $options: 'i' };
-  }
-  if (status !== 'all') {
-    queryObject.status = status;
-  }
-  if (jobType !== 'all') {
-    queryObject.jobType = jobType;
-  }
-  let result = Job.find(queryObject);
+	const { search, status, jobType, sort } = req.query;
+	const queryObject = {
+		createdBy: req.user.userId,
+	};
+	if (search) {
+		queryObject.position = { $regex: search, $options: 'i' };
+	}
+	if (status !== 'all') {
+		queryObject.status = status;
+	}
+	if (jobType !== 'all') {
+		queryObject.jobType = jobType;
+	}
+	let result = Job.find(queryObject);
 
-  if (sort === 'latest') {
-    result = result.sort('-createdAt');
-  }
-  if (sort === 'oldest') {
-    result = result.sort('createdAt');
-  }
-  if (sort === 'a-z') {
-    result = result.sort('position');
-  }
-  if (sort === 'z-a') {
-    result = result.sort('-position');
-  }
+	if (sort === 'latest') {
+		result = result.sort('-createdAt');
+	}
+	if (sort === 'oldest') {
+		result = result.sort('createdAt');
+	}
+	if (sort === 'a-z') {
+		result = result.sort('position');
+	}
+	if (sort === 'z-a') {
+		result = result.sort('-position');
+	}
 
-  // setup pagination
-  const page = Number(req.query.page) || 1;
-  const limit = Number(req.query.limit) || 10;
-  const skip = (page - 1) * limit;
+	// setup pagination
+	const page = Number(req.query.page) || 1;
+	const limit = Number(req.query.limit) || 10;
+	const skip = (page - 1) * limit;
 
-  result = result.skip(skip).limit(limit);
+	result = result.skip(skip).limit(limit);
 
-  const jobs = await result;
+	const jobs = await result;
 
-  const totalJobs = await Job.countDocuments(queryObject);
-  const numOfPages = Math.ceil(totalJobs / limit);
+	const totalJobs = await Job.countDocuments(queryObject);
+	const numOfPages = Math.ceil(totalJobs / limit);
 
-  res.status(StatusCodes.OK).json({ jobs, totalJobs, numOfPages });
+	res.status(StatusCodes.OK).json({ jobs, totalJobs, numOfPages });
 };
 ```
 
@@ -5136,17 +5130,17 @@ import PageBtnContainer from './PageBtnContainer';
 const { numOfPages } = useAppContext();
 
 return (
-  <Wrapper>
-    <h5>
-      {totalJobs} job{jobs.length > 1 && 's'} found
-    </h5>
-    <div className='jobs'>
-      {jobs.map((job) => {
-        return <Job key={job._id} {...job} />;
-      })}
-    </div>
-    {numOfPages > 1 && <PageBtnContainer />}
-  </Wrapper>
+	<Wrapper>
+		<h5>
+			{totalJobs} job{jobs.length > 1 && 's'} found
+		</h5>
+		<div className="jobs">
+			{jobs.map((job) => {
+				return <Job key={job._id} {...job} />;
+			})}
+		</div>
+		{numOfPages > 1 && <PageBtnContainer />}
+	</Wrapper>
 );
 ```
 
@@ -5160,30 +5154,30 @@ import { HiChevronDoubleLeft, HiChevronDoubleRight } from 'react-icons/hi';
 import Wrapper from '../assets/wrappers/PageBtnContainer';
 
 const PageButtonContainer = () => {
-  const { numOfPages, page } = useAppContext();
+	const { numOfPages, page } = useAppContext();
 
-  const prevPage = () => {
-    console.log('prev page');
-  };
-  const nextPage = () => {
-    console.log('next page');
-  };
+	const prevPage = () => {
+		console.log('prev page');
+	};
+	const nextPage = () => {
+		console.log('next page');
+	};
 
-  return (
-    <Wrapper>
-      <button className='prev-btn' onClick={prevPage}>
-        <HiChevronDoubleLeft />
-        prev
-      </button>
+	return (
+		<Wrapper>
+			<button className="prev-btn" onClick={prevPage}>
+				<HiChevronDoubleLeft />
+				prev
+			</button>
 
-      <div className='btn-container'>buttons</div>
+			<div className="btn-container">buttons</div>
 
-      <button className='next-btn' onClick={nextPage}>
-        next
-        <HiChevronDoubleRight />
-      </button>
-    </Wrapper>
-  );
+			<button className="next-btn" onClick={nextPage}>
+				next
+				<HiChevronDoubleRight />
+			</button>
+		</Wrapper>
+	);
 };
 
 export default PageButtonContainer;
@@ -5197,24 +5191,24 @@ export default PageButtonContainer;
 PageBtnContainer.js;
 
 const pages = Array.from({ length: numOfPages }, (_, index) => {
-  return index + 1;
+	return index + 1;
 });
 
 return (
-  <div className='btn-container'>
-    {pages.map((pageNumber) => {
-      return (
-        <button
-          type='button'
-          className={pageNumber === page ? 'pageBtn active' : 'pageBtn'}
-          key={pageNumber}
-          onClick={() => console.log(page)}
-        >
-          {pageNumber}
-        </button>
-      );
-    })}
-  </div>
+	<div className="btn-container">
+		{pages.map((pageNumber) => {
+			return (
+				<button
+					type="button"
+					className={pageNumber === page ? 'pageBtn active' : 'pageBtn'}
+					key={pageNumber}
+					onClick={() => console.log(page)}
+				>
+					{pageNumber}
+				</button>
+			);
+		})}
+	</div>
 );
 ```
 
@@ -5237,7 +5231,7 @@ value={{changePage}}
 reducer.js;
 
 if (action.type === CHANGE_PAGE) {
-  return { ...state, page: action.payload.page };
+	return { ...state, page: action.payload.page };
 }
 ```
 
@@ -5246,14 +5240,14 @@ PageBtnContainer.js;
 
 const { changePage } = useAppContext();
 return (
-  <button
-    type='button'
-    className={pageNumber === page ? 'pageBtn active' : 'pageBtn'}
-    key={pageNumber}
-    onClick={() => changePage(pageNumber)}
-  >
-    {pageNumber}
-  </button>
+	<button
+		type="button"
+		className={pageNumber === page ? 'pageBtn active' : 'pageBtn'}
+		key={pageNumber}
+		onClick={() => changePage(pageNumber)}
+	>
+		{pageNumber}
+	</button>
 );
 ```
 
@@ -5262,22 +5256,22 @@ return (
 ```js
 PageBtnContainer.js;
 const prevPage = () => {
-  let newPage = page - 1;
-  if (newPage < 1) {
-    // newPage = 1
-    // alternative
-    newPage = numOfPages;
-  }
-  changePage(newPage);
+	let newPage = page - 1;
+	if (newPage < 1) {
+		// newPage = 1
+		// alternative
+		newPage = numOfPages;
+	}
+	changePage(newPage);
 };
 const nextPage = () => {
-  let newPage = page + 1;
-  if (newPage > numOfPages) {
-    // newPage = numOfPages
-    // alternative
-    newPage = 1;
-  }
-  changePage(newPage);
+	let newPage = page + 1;
+	if (newPage > numOfPages) {
+		// newPage = numOfPages
+		// alternative
+		newPage = 1;
+	}
+	changePage(newPage);
 };
 ```
 
@@ -5287,10 +5281,10 @@ const nextPage = () => {
 appContext.js;
 
 const getJobs = async () => {
-  const { page, search, searchStatus, searchType, sort } = state;
+	const { page, search, searchStatus, searchType, sort } = state;
 
-  let url = `/jobs?page=${page}&status=${searchStatus}&jobType=${searchType}&sort=${sort}`;
-  // rest of the code
+	let url = `/jobs?page=${page}&status=${searchStatus}&jobType=${searchType}&sort=${sort}`;
+	// rest of the code
 };
 ```
 
@@ -5299,7 +5293,7 @@ JobsContainer.js;
 
 const { page } = useAppContext();
 useEffect(() => {
-  getJobs();
+	getJobs();
 }, [page, search, searchStatus, searchType, sort]);
 ```
 
@@ -5307,9 +5301,9 @@ useEffect(() => {
 reducer.js;
 
 if (action.type === HANDLE_CHANGE) {
-  // set back to first page
+	// set back to first page
 
-  return { ...state, page: 1, [action.payload.name]: action.payload.value };
+	return { ...state, page: 1, [action.payload.name]: action.payload.value };
 }
 ```
 
@@ -5356,7 +5350,7 @@ app.use('/api/v1/jobs', authenticateUser, jobsRouter);
 
 // only when ready to deploy
 app.get('*', function (request, response) {
-  response.sendFile(path.resolve(__dirname, './client/build', 'index.html'));
+	response.sendFile(path.resolve(__dirname, './client/build', 'index.html'));
 });
 ```
 
@@ -5397,9 +5391,9 @@ authRoutes.js;
 import rateLimiter from 'express-rate-limit';
 
 const apiLimiter = rateLimiter({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 10,
-  message: 'Too many requests from this IP, please try again after 15 minutes',
+	windowMs: 15 * 60 * 1000, // 15 minutes
+	max: 10,
+	message: 'Too many requests from this IP, please try again after 15 minutes',
 });
 
 router.route('/register').post(apiLimiter, register);
@@ -5476,29 +5470,29 @@ client/pages/Register.js
 
 ```js
 const Register = () => {
-  return (
-    <Wrapper className='full-page'>
-      <form className='form' onSubmit={onSubmit}>
-        <button type='submit' className='btn btn-block' disabled={isLoading}>
-          submit
-        </button>
-        <button
-          type='button'
-          className='btn btn-block btn-hipster'
-          disabled={isLoading}
-          onClick={() => {
-            setupUser({
-              currentUser: { email: 'testUser@test.com', password: 'secret' },
-              endPoint: 'login',
-              alertText: 'Login Successful! Redirecting...',
-            });
-          }}
-        >
-          {isLoading ? 'loading...' : 'demo app'}
-        </button>
-      </form>
-    </Wrapper>
-  );
+	return (
+		<Wrapper className="full-page">
+			<form className="form" onSubmit={onSubmit}>
+				<button type="submit" className="btn btn-block" disabled={isLoading}>
+					submit
+				</button>
+				<button
+					type="button"
+					className="btn btn-block btn-hipster"
+					disabled={isLoading}
+					onClick={() => {
+						setupUser({
+							currentUser: { email: 'testUser@test.com', password: 'secret' },
+							endPoint: 'login',
+							alertText: 'Login Successful! Redirecting...',
+						});
+					}}
+				>
+					{isLoading ? 'loading...' : 'demo app'}
+				</button>
+			</form>
+		</Wrapper>
+	);
 };
 export default Register;
 ```
@@ -5519,21 +5513,21 @@ import { UnAuthenticatedError } from '../errors/index.js';
 
 UnAuthenticatedError;
 const auth = async (req, res, next) => {
-  const authHeader = req.headers.authorization;
-  if (!authHeader || !authHeader.startsWith('Bearer')) {
-    throw new UnAuthenticatedError('Authentication Invalid');
-  }
-  const token = authHeader.split(' ')[1];
-  try {
-    const payload = jwt.verify(token, process.env.JWT_SECRET);
-    // TEST USER
-    const testUser = payload.userId === 'testUserID';
-    req.user = { userId: payload.userId, testUser };
-    // TEST USER
-    next();
-  } catch (error) {
-    throw new UnAuthenticatedError('Authentication Invalid');
-  }
+	const authHeader = req.headers.authorization;
+	if (!authHeader || !authHeader.startsWith('Bearer')) {
+		throw new UnAuthenticatedError('Authentication Invalid');
+	}
+	const token = authHeader.split(' ')[1];
+	try {
+		const payload = jwt.verify(token, process.env.JWT_SECRET);
+		// TEST USER
+		const testUser = payload.userId === 'testUserID';
+		req.user = { userId: payload.userId, testUser };
+		// TEST USER
+		next();
+	} catch (error) {
+		throw new UnAuthenticatedError('Authentication Invalid');
+	}
 };
 
 export default auth;
@@ -5545,10 +5539,10 @@ middleware/testUser
 import { BadRequestError } from '../errors/index.js';
 
 const testUser = (req, res, next) => {
-  if (req.user.testUser) {
-    throw new BadRequestError('Test User. Read Only!');
-  }
-  next();
+	if (req.user.testUser) {
+		throw new BadRequestError('Test User. Read Only!');
+	}
+	next();
 };
 
 export default testUser;
@@ -5561,11 +5555,11 @@ import express from 'express';
 const router = express.Router();
 
 import {
-  createJob,
-  deleteJob,
-  getAllJobs,
-  updateJob,
-  showStats,
+	createJob,
+	deleteJob,
+	getAllJobs,
+	updateJob,
+	showStats,
 } from '../controllers/jobsController.js';
 
 import testUser from '../middleware/testUser.js';
@@ -5586,9 +5580,9 @@ const router = express.Router();
 
 import rateLimiter from 'express-rate-limit';
 const apiLimiter = rateLimiter({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 10,
-  message: 'Too many requests from this IP, please try again after 15 minutes',
+	windowMs: 15 * 60 * 1000, // 15 minutes
+	max: 10,
+	message: 'Too many requests from this IP, please try again after 15 minutes',
 });
 
 import { register, login, updateUser } from '../controllers/authController.js';
@@ -5619,9 +5613,9 @@ const token = user.createJWT();
 const oneDay = 1000 * 60 * 60 * 24;
 
 res.cookie('token', token, {
-  httpOnly: true,
-  expires: new Date(Date.now() + oneDay),
-  secure: process.env.NODE_ENV === 'production',
+	httpOnly: true,
+	expires: new Date(Date.now() + oneDay),
+	secure: process.env.NODE_ENV === 'production',
 });
 ```
 
@@ -5631,13 +5625,13 @@ res.cookie('token', token, {
 
 ```js
 const attachCookie = ({ res, token }) => {
-  const oneDay = 1000 * 60 * 60 * 24;
+	const oneDay = 1000 * 60 * 60 * 24;
 
-  res.cookie('token', token, {
-    httpOnly: true,
-    expires: new Date(Date.now() + oneDay),
-    secure: process.env.NODE_ENV === 'production',
-  });
+	res.cookie('token', token, {
+		httpOnly: true,
+		expires: new Date(Date.now() + oneDay),
+		secure: process.env.NODE_ENV === 'production',
+	});
 };
 
 export default attachCookie;
@@ -5684,11 +5678,11 @@ middleware/auth.js
 
 ```js
 const auth = async (req, res, next) => {
-  const token = req.cookies.token;
-  if (!token) {
-    throw new UnAuthenticatedError('Authentication Invalid');
-  }
-  // rest of the code
+	const token = req.cookies.token;
+	if (!token) {
+		throw new UnAuthenticatedError('Authentication Invalid');
+	}
+	// rest of the code
 };
 ```
 
@@ -5721,10 +5715,10 @@ const userLocation = localStorage.getItem('location');
 
 ```js
 const initialState = {
-  // remove token all together
-  user: null,
-  userLocation: '',
-  jobLocation: '',
+	// remove token all together
+	user: null,
+	userLocation: '',
+	jobLocation: '',
 };
 ```
 
@@ -5732,13 +5726,13 @@ const initialState = {
 
 ```js
 authFetch.interceptors.request.use(
-  (config) => {
-    config.headers.common['Authorization'] = `Bearer ${state.token}`;
-    return config;
-  },
-  (error) => {
-    return Promise.reject(error);
-  }
+	(config) => {
+		config.headers.common['Authorization'] = `Bearer ${state.token}`;
+		return config;
+	},
+	(error) => {
+		return Promise.reject(error);
+	}
 );
 ```
 
@@ -5748,8 +5742,8 @@ authFetch.interceptors.request.use(
 
 ```js
 const logoutUser = async () => {
-  dispatch({ type: LOGOUT_USER });
-  // remove local storage code
+	dispatch({ type: LOGOUT_USER });
+	// remove local storage code
 };
 ```
 
@@ -5765,8 +5759,8 @@ controllers/authController.js
 
 ```js
 const getCurrentUser = async (req, res) => {
-  const user = await User.findOne({ _id: req.user.userId });
-  res.status(StatusCodes.OK).json({ user, location: user.location });
+	const user = await User.findOne({ _id: req.user.userId });
+	res.status(StatusCodes.OK).json({ user, location: user.location });
 };
 
 export { register, login, updateUser, getCurrentUser };
@@ -5776,10 +5770,10 @@ routes/authRoutes.js
 
 ```js
 import {
-  register,
-  login,
-  updateUser,
-  getCurrentUser,
+	register,
+	login,
+	updateUser,
+	getCurrentUser,
 } from '../controllers/authController.js';
 
 router.route('/register').post(apiLimiter, register);
@@ -5806,26 +5800,26 @@ export const GET_CURRENT_USER_SUCCESS = 'GET_CURRENT_USER_SUCCESS';
 
 ```js
 const initialState = {
-  userLoading: true,
+	userLoading: true,
 };
 
 const getCurrentUser = async () => {
-  dispatch({ type: GET_CURRENT_USER_BEGIN });
-  try {
-    const { data } = await authFetch('/auth/getCurrentUser');
-    const { user, location } = data;
+	dispatch({ type: GET_CURRENT_USER_BEGIN });
+	try {
+		const { data } = await authFetch('/auth/getCurrentUser');
+		const { user, location } = data;
 
-    dispatch({
-      type: GET_CURRENT_USER_SUCCESS,
-      payload: { user, location },
-    });
-  } catch (error) {
-    if (error.response.status === 401) return;
-    logoutUser();
-  }
+		dispatch({
+			type: GET_CURRENT_USER_SUCCESS,
+			payload: { user, location },
+		});
+	} catch (error) {
+		if (error.response.status === 401) return;
+		logoutUser();
+	}
 };
 useEffect(() => {
-  getCurrentUser();
+	getCurrentUser();
 }, []);
 ```
 
@@ -5833,25 +5827,25 @@ reducer.js
 
 ```js
 if (action.type === GET_CURRENT_USER_BEGIN) {
-  return { ...state, userLoading: true, showAlert: false };
+	return { ...state, userLoading: true, showAlert: false };
 }
 if (action.type === GET_CURRENT_USER_SUCCESS) {
-  return {
-    ...state,
-    userLoading: false,
-    user: action.payload.user,
-    userLocation: action.payload.location,
-    jobLocation: action.payload.location,
-  };
+	return {
+		...state,
+		userLoading: false,
+		user: action.payload.user,
+		userLocation: action.payload.location,
+		jobLocation: action.payload.location,
+	};
 }
 ```
 
 ```js
 if (action.type === LOGOUT_USER) {
-  return {
-    ...initialState,
-    userLoading: false,
-  };
+	return {
+		...initialState,
+		userLoading: false,
+	};
 }
 ```
 
@@ -5861,14 +5855,14 @@ if (action.type === LOGOUT_USER) {
 import Loading from '../components/Loading';
 
 const ProtectedRoute = ({ children }) => {
-  const { user, userLoading } = useAppContext();
+	const { user, userLoading } = useAppContext();
 
-  if (userLoading) return <Loading />;
+	if (userLoading) return <Loading />;
 
-  if (!user) {
-    return <Navigate to='/landing' />;
-  }
-  return children;
+	if (!user) {
+		return <Navigate to="/landing" />;
+	}
+	return children;
 };
 
 export default ProtectedRoute;
@@ -5881,13 +5875,13 @@ import { Navigate } from 'react-router-dom';
 import { useAppContext } from '../context/appContext';
 
 const Landing = () => {
-  const { user } = useAppContext();
-  return (
-    <React.Fragment>
-      {user && <Navigate to='/' />}
-      <Wrapper>// rest of the code..........</Wrapper>
-    </React.Fragment>
-  );
+	const { user } = useAppContext();
+	return (
+		<React.Fragment>
+			{user && <Navigate to="/" />}
+			<Wrapper>// rest of the code..........</Wrapper>
+		</React.Fragment>
+	);
 };
 
 export default Landing;
@@ -5899,11 +5893,11 @@ controllers/authController
 
 ```js
 const logout = async (req, res) => {
-  res.cookie('token', 'logout', {
-    httpOnly: true,
-    expires: new Date(Date.now() + 1000),
-  });
-  res.status(StatusCodes.OK).json({ msg: 'user logged out!' });
+	res.cookie('token', 'logout', {
+		httpOnly: true,
+		expires: new Date(Date.now() + 1000),
+	});
+	res.status(StatusCodes.OK).json({ msg: 'user logged out!' });
 };
 ```
 
@@ -5911,11 +5905,11 @@ routes/authRoutes
 
 ```js
 import {
-  register,
-  login,
-  updateUser,
-  getCurrentUser,
-  logout,
+	register,
+	login,
+	updateUser,
+	getCurrentUser,
+	logout,
 } from '../controllers/authController.js';
 
 router.route('/register').post(apiLimiter, register);
@@ -5930,8 +5924,8 @@ appContext.js
 
 ```js
 const logoutUser = async () => {
-  await authFetch.get('/auth/logout');
-  dispatch({ type: LOGOUT_USER });
+	await authFetch.get('/auth/logout');
+	dispatch({ type: LOGOUT_USER });
 };
 ```
 

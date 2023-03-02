@@ -14,7 +14,7 @@ const Register = () => {
 	const [values, setValues] = useState(initialState);
 	// global context and useNavigate later
 
-	const {isLoading, showAlert} = useAppContext();
+	const { isLoading, showAlert, displayAlert } = useAppContext();
 
 	// toggle member function for register/login page
 	const toggleMember = () => {
@@ -22,12 +22,18 @@ const Register = () => {
 	};
 
 	const handleChange = (e) => {
+		setValues({ ...values, [e.target.name]: e.target.value });
 		console.log(e.target);
 	};
 
 	const onSubmit = (e) => {
 		e.preventDefault();
-		console.log(e.target);
+		const { name, email, password, isMember } = values;
+		if (!email || !password || (!isMember && !name)) {
+			displayAlert();
+			return;
+		}
+		console.log(values);
 	};
 
 	return (
